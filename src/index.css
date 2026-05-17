@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #f7f8fa;
+  --ink-900: #1f2329;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink-900);
+  font-feature-settings: 'tnum';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 自定义滚动条,飞书风格细线 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(31, 35, 41, 0.18);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(31, 35, 41, 0.32);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 选中色 */
+::selection {
+  background: rgba(51, 112, 255, 0.22);
+  color: #1f2329;
+}
+
+/* 链接基础样式 */
+.prose-link {
+  @apply text-feishu-blue underline decoration-feishu-blue/30 underline-offset-2 transition-colors hover:decoration-feishu-blue;
+}
+
+/* 玻璃感卡片 */
+.glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(140%) blur(14px);
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
+  border: 1px solid rgba(31, 35, 41, 0.06);
+}
+
+/* 渐变文字 */
+.text-gradient {
+  background: linear-gradient(120deg, #3370ff 0%, #7e5cff 60%, #ff66c4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 背景渐变光斑 */
+.aurora {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+.aurora::before,
+.aurora::after {
+  content: '';
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+}
+.aurora::before {
+  top: -20vmax;
+  left: -10vmax;
+  background: radial-gradient(
+    circle,
+    rgba(51, 112, 255, 0.55),
+    transparent 60%
+  );
+  animation: floaty 10s ease-in-out infinite;
+}
+.aurora::after {
+  bottom: -25vmax;
+  right: -15vmax;
+  background: radial-gradient(
+    circle,
+    rgba(126, 92, 255, 0.45),
+    transparent 60%
+  );
+  animation: floaty 12s ease-in-out infinite reverse;
+}
