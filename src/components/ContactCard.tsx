@@ -122,14 +122,14 @@ export function ContactCard({ open, onClose }: Props) {
             onClick={(e) => e.stopPropagation()}
             className="relative w-full max-w-md overflow-hidden rounded-3xl bg-white shadow-2xl"
           >
-            {/* 顶部装饰 */}
-            <div className="relative h-28 overflow-hidden bg-gradient-to-br from-brand-blue via-[#5B7CFF] to-brand-purple">
-              <div className="aurora opacity-50" />
+            {/* 顶部装饰条 */}
+            <div className="relative h-16 overflow-hidden bg-gradient-to-br from-brand-blue via-[#5B7CFF] to-brand-purple">
+              <div className="aurora opacity-40" />
               <button
                 type="button"
                 onClick={onClose}
                 aria-label="关闭"
-                className="absolute right-3 top-3 rounded-full bg-white/15 p-1.5 text-white transition hover:bg-white/25"
+                className="absolute right-3 top-3 rounded-full bg-white/20 p-1.5 text-white transition hover:bg-white/30"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -137,19 +137,22 @@ export function ContactCard({ open, onClose }: Props) {
 
             {/* 头像 + 姓名 */}
             <div className="-mt-12 flex flex-col items-center px-6">
-              <div className="h-20 w-20 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-soft-lg">
-                <img
-                  src={profile.avatar}
-                  alt={profile.name}
-                  className="h-full w-full object-cover"
-                />
+              <div className="relative">
+                <div className="absolute -inset-1.5 rounded-[28px] bg-gradient-to-br from-brand-blue to-brand-purple opacity-25 blur-md" />
+                <div className="relative h-24 w-24 overflow-hidden rounded-3xl border-4 border-white bg-white shadow-soft-lg">
+                  <img
+                    src={profile.avatar}
+                    alt={profile.name}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
               </div>
-              <div className="mt-3 text-center">
-                <div className="text-lg font-semibold text-ink-900">
+              <div className="mt-4 text-center">
+                <div className="text-xl font-semibold text-ink-900">
                   {profile.name}
                 </div>
-                <div className="mt-0.5 text-sm text-ink-500">{profile.title}</div>
-                <div className="mt-1 inline-flex items-center gap-1 text-xs text-ink-300">
+                <div className="mt-1 text-sm text-ink-500">{profile.title}</div>
+                <div className="mt-1.5 inline-flex items-center gap-1 text-xs text-ink-300">
                   <MapPin className="h-3 w-3" />
                   {profile.location}
                 </div>
