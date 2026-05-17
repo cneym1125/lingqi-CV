@@ -5,6 +5,7 @@ import { RichText } from './RichText'
 import { MediaGallery } from './MediaGallery'
 import { ProofList } from './ProofList'
 import { Tag } from './Tag'
+import { InfoBadge } from './InfoBadge'
 
 export function ExperienceSection() {
   return (
@@ -51,8 +52,17 @@ export function ExperienceSection() {
                       </div>
                     </div>
                   </div>
-                  <div className="rounded-full bg-brand-blue-soft px-3 py-1 text-xs font-medium text-brand-blue">
-                    {e.period}
+                  <div className="flex flex-wrap items-center gap-2">
+                    {e.product && (
+                      <InfoBadge
+                        name={e.product.name}
+                        description={e.product.description}
+                        href={e.product.href}
+                      />
+                    )}
+                    <div className="rounded-full bg-brand-blue-soft px-3 py-1 text-xs font-medium text-brand-blue">
+                      {e.period}
+                    </div>
                   </div>
                 </div>
 
