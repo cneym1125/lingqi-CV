@@ -4,8 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // 飞书 Lark 风格主色
-        feishu: {
+        brand: {
           blue: '#3370FF',
           'blue-hover': '#245BDB',
           'blue-soft': '#E8F1FF',
@@ -36,9 +35,9 @@ export default {
         ],
       },
       boxShadow: {
-        feishu:
+        soft:
           '0 4px 12px rgba(31,35,41,0.06), 0 2px 4px rgba(31,35,41,0.04)',
-        'feishu-lg':
+        'soft-lg':
           '0 12px 32px rgba(31,35,41,0.08), 0 4px 12px rgba(31,35,41,0.05)',
       },
       backgroundImage: {

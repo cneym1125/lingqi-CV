@@ -21,8 +21,8 @@ export function Section({ id, eyebrow, title, description, children }: Props) {
           className="mb-12"
         >
           {eyebrow && (
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-feishu-blue-soft px-3 py-1 text-xs font-medium text-feishu-blue">
-              <span className="h-1.5 w-1.5 rounded-full bg-feishu-blue" />
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-brand-blue-soft px-3 py-1 text-xs font-medium text-brand-blue">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-blue" />
               {eyebrow}
             </div>
           )}

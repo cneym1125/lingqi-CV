@@ -22,7 +22,7 @@ export function AwardsSection() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: i * 0.05 }}
             whileHover={{ y: -3 }}
-            className="rounded-2xl border border-ink-100 bg-white p-5 shadow-feishu transition hover:shadow-feishu-lg"
+            className="rounded-2xl border border-ink-100 bg-white p-5 shadow-soft transition hover:shadow-soft-lg"
           >
             <div className="flex items-start gap-3">
               <div className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-gradient-to-tr from-amber-200 to-amber-400 text-white">

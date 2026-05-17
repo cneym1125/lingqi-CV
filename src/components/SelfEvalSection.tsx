@@ -30,14 +30,14 @@ export function SelfEvalSection() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.55, delay: i * 0.08 }}
               whileHover={{ y: -4 }}
-              className="group relative overflow-hidden rounded-3xl border border-ink-100 bg-white p-6 shadow-feishu transition hover:shadow-feishu-lg"
+              className="group relative overflow-hidden rounded-3xl border border-ink-100 bg-white p-6 shadow-soft transition hover:shadow-soft-lg"
             >
               <div
                 aria-hidden
-                className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-feishu-blue/10 to-feishu-purple/10 blur-2xl transition group-hover:scale-110"
+                className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-brand-blue/10 to-brand-purple/10 blur-2xl transition group-hover:scale-110"
               />
               <div className="relative flex items-start gap-4">
-                <div className="flex h-11 w-11 flex-none items-center justify-center rounded-2xl bg-gradient-to-br from-feishu-blue to-feishu-purple text-white shadow-feishu">
+                <div className="flex h-11 w-11 flex-none items-center justify-center rounded-2xl bg-gradient-to-br from-brand-blue to-brand-purple text-white shadow-soft">
                   <Icon className="h-5 w-5" />
                 </div>
                 <div>

@@ -23,7 +23,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 自定义滚动条,飞书风格细线 */
+/* 自定义滚动条 — 细线低饱和 */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -47,7 +47,7 @@ body {
 
 /* 链接基础样式 */
 .prose-link {
-  @apply text-feishu-blue underline decoration-feishu-blue/30 underline-offset-2 transition-colors hover:decoration-feishu-blue;
+  @apply text-brand-blue underline decoration-brand-blue/30 underline-offset-2 transition-colors hover:decoration-brand-blue;
 }
 
 /* 玻璃感卡片 */

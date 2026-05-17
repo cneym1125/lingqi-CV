@@ -23,7 +23,7 @@ export function ProjectsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
-            className="grid grid-cols-1 overflow-hidden rounded-3xl border border-ink-100 bg-white shadow-feishu transition hover:shadow-feishu-lg md:grid-cols-[1.1fr_1fr]"
+            className="grid grid-cols-1 overflow-hidden rounded-3xl border border-ink-100 bg-white shadow-soft transition hover:shadow-soft-lg md:grid-cols-[1.1fr_1fr]"
           >
             {p.cover && (
               <div className="relative aspect-[4/3] overflow-hidden bg-ink-50 md:aspect-auto">
@@ -54,7 +54,7 @@ export function ProjectsSection() {
                 <h3 className="text-xl font-semibold text-ink-900 md:text-2xl">
                   {p.name}
                 </h3>
-                <span className="rounded-full bg-feishu-blue-soft px-3 py-1 text-xs font-medium text-feishu-blue">
+                <span className="rounded-full bg-brand-blue-soft px-3 py-1 text-xs font-medium text-brand-blue">
                   {p.period}
                 </span>
               </div>
@@ -68,7 +68,7 @@ export function ProjectsSection() {
                     key={j}
                     className="flex gap-2.5 text-[15px] leading-relaxed text-ink-700"
                   >
-                    <span className="mt-2 inline-block h-1.5 w-1.5 flex-none rounded-full bg-feishu-purple" />
+                    <span className="mt-2 inline-block h-1.5 w-1.5 flex-none rounded-full bg-brand-purple" />
                     <span>
                       <RichText paragraph={h} />
                     </span>
@@ -84,7 +84,7 @@ export function ProjectsSection() {
                       href={l.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-full border border-ink-100 px-3 py-1.5 text-xs font-medium text-ink-700 transition hover:border-feishu-blue hover:text-feishu-blue"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-ink-100 px-3 py-1.5 text-xs font-medium text-ink-700 transition hover:border-brand-blue hover:text-brand-blue"
                     >
                       {l.label}
                       <ExternalLink className="h-3 w-3" />

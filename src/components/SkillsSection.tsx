@@ -18,7 +18,7 @@ export function SkillsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: i * 0.08 }}
-            className="rounded-3xl border border-ink-100 bg-white p-6 shadow-feishu transition hover:shadow-feishu-lg"
+            className="rounded-3xl border border-ink-100 bg-white p-6 shadow-soft transition hover:shadow-soft-lg"
           >
             <h3 className="text-lg font-semibold text-ink-900">{g.name}</h3>
             <div className="mt-5 space-y-4">
@@ -38,7 +38,7 @@ export function SkillsSection() {
                         delay: 0.1 + j * 0.05,
                         ease: [0.22, 1, 0.36, 1],
                       }}
-                      className="h-full rounded-full bg-gradient-to-r from-feishu-blue via-feishu-purple to-pink-400"
+                      className="h-full rounded-full bg-gradient-to-r from-brand-blue via-brand-purple to-pink-400"
                     />
                   </div>
                 </div>

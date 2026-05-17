@@ -16,7 +16,7 @@ export function ExperienceSection() {
     >
       <div className="relative">
         {/* 时间线主轴 */}
-        <div className="absolute left-3 top-2 h-[calc(100%-1rem)] w-px bg-gradient-to-b from-feishu-blue/40 via-ink-100 to-transparent md:left-4" />
+        <div className="absolute left-3 top-2 h-[calc(100%-1rem)] w-px bg-gradient-to-b from-brand-blue/40 via-ink-100 to-transparent md:left-4" />
         <div className="space-y-10">
           {experiences.map((e, i) => (
             <motion.article
@@ -28,10 +28,10 @@ export function ExperienceSection() {
               className="relative pl-10 md:pl-14"
             >
               {/* 节点 */}
-              <div className="absolute left-0 top-1.5 flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-feishu-blue shadow-feishu md:left-1">
+              <div className="absolute left-0 top-1.5 flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-brand-blue shadow-soft md:left-1">
                 <div className="h-2 w-2 rounded-full bg-white" />
               </div>
-              <div className="glass-card rounded-3xl p-6 shadow-feishu transition hover:shadow-feishu-lg md:p-8">
+              <div className="glass-card rounded-3xl p-6 shadow-soft transition hover:shadow-soft-lg md:p-8">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="flex items-center gap-3">
                     {e.logo && (
@@ -51,7 +51,7 @@ export function ExperienceSection() {
                       </div>
                     </div>
                   </div>
-                  <div className="rounded-full bg-feishu-blue-soft px-3 py-1 text-xs font-medium text-feishu-blue">
+                  <div className="rounded-full bg-brand-blue-soft px-3 py-1 text-xs font-medium text-brand-blue">
                     {e.period}
                   </div>
                 </div>
@@ -66,7 +66,7 @@ export function ExperienceSection() {
                       key={j}
                       className="flex gap-3 text-[15px] leading-relaxed text-ink-700"
                     >
-                      <span className="mt-2 inline-block h-1.5 w-1.5 flex-none rounded-full bg-feishu-blue" />
+                      <span className="mt-2 inline-block h-1.5 w-1.5 flex-none rounded-full bg-brand-blue" />
                       <span>
                         <RichText paragraph={b} />
                       </span>

@@ -9,7 +9,7 @@ export function ProofList({ proofs }: { proofs?: Proof[] }) {
   return (
     <>
       <div className="mt-5 flex items-center gap-2 text-xs font-medium text-ink-500">
-        <ShieldCheck className="h-4 w-4 text-feishu-green" />
+        <ShieldCheck className="h-4 w-4 text-brand-green" />
         <span>证明材料</span>
         <span className="text-ink-200">·</span>
         <span className="text-ink-300">{proofs.length} 项</span>
@@ -31,7 +31,7 @@ export function ProofList({ proofs }: { proofs?: Proof[] }) {
                 setActive(p)
               }
             }}
-            className="group flex items-center gap-3 rounded-2xl border border-ink-100 bg-white px-3 py-2.5 text-left shadow-feishu transition hover:border-feishu-blue/30 hover:shadow-feishu-lg"
+            className="group flex items-center gap-3 rounded-2xl border border-ink-100 bg-white px-3 py-2.5 text-left shadow-soft transition hover:border-brand-blue/30 hover:shadow-soft-lg"
           >
             <div className="h-10 w-10 overflow-hidden rounded-lg bg-ink-50">
               {p.thumbnail ? (
@@ -48,7 +48,7 @@ export function ProofList({ proofs }: { proofs?: Proof[] }) {
               )}
             </div>
             <div>
-              <div className="text-sm font-medium text-ink-900 group-hover:text-feishu-blue">
+              <div className="text-sm font-medium text-ink-900 group-hover:text-brand-blue">
                 {p.title}
               </div>
               {p.description && (

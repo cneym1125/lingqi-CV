@@ -20,7 +20,7 @@ export function EducationSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: i * 0.05 }}
-            className="rounded-3xl border border-ink-100 bg-white p-6 shadow-feishu transition hover:shadow-feishu-lg"
+            className="rounded-3xl border border-ink-100 bg-white p-6 shadow-soft transition hover:shadow-soft-lg"
           >
             <div className="flex items-start gap-4">
               <div className="flex h-12 w-12 flex-none items-center justify-center overflow-hidden rounded-xl border border-ink-100 bg-white">

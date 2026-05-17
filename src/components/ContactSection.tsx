@@ -16,7 +16,7 @@ export function ContactSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
-        className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-feishu-blue via-[#5B7CFF] to-feishu-purple p-8 text-white shadow-feishu-lg md:p-12"
+        className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-blue via-[#5B7CFF] to-brand-purple p-8 text-white shadow-soft-lg md:p-12"
       >
         <div className="aurora opacity-40" />
         <div className="relative grid grid-cols-1 gap-8 md:grid-cols-[1fr_auto] md:items-end">
@@ -46,7 +46,7 @@ export function ContactSection() {
           </div>
           <a
             href={`mailto:${profile.email}`}
-            className="group inline-flex items-center gap-2 self-start rounded-full bg-white px-5 py-3 text-sm font-semibold text-feishu-blue shadow-lg transition hover:bg-white/95 md:self-end"
+            className="group inline-flex items-center gap-2 self-start rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand-blue shadow-lg transition hover:bg-white/95 md:self-end"
           >
             发送邮件
             <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -58,7 +58,12 @@ export function ContactSection() {
         <span>
           © {new Date().getFullYear()} {profile.name} · 用 ❤️ 与 React 制作
         </span>
-        <span className="text-ink-300">飞书设计语言 · Feishu Design</span>
+        <a
+          href="#top"
+          className="text-ink-300 transition hover:text-brand-blue"
+        >
+          回到顶部 ↑
+        </a>
       </footer>
     </Section>
   )

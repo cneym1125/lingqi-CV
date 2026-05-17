@@ -47,7 +47,7 @@ export function Nav() {
     >
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
         <a href="#top" className="flex items-center gap-2">
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-feishu-blue text-sm font-semibold text-white">
+          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-blue text-sm font-semibold text-white">
             {profile.name.slice(0, 1)}
           </div>
           <span className="text-sm font-semibold text-ink-900">
@@ -62,14 +62,14 @@ export function Nav() {
               href={`#${it.id}`}
               className={`relative rounded-full px-3 py-1.5 text-sm transition ${
                 active === it.id
-                  ? 'text-feishu-blue'
+                  ? 'text-brand-blue'
                   : 'text-ink-500 hover:text-ink-900'
               }`}
             >
               {active === it.id && (
                 <motion.span
                   layoutId="nav-active"
-                  className="absolute inset-0 -z-10 rounded-full bg-feishu-blue-soft"
+                  className="absolute inset-0 -z-10 rounded-full bg-brand-blue-soft"
                   transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                 />
               )}
@@ -79,7 +79,7 @@ export function Nav() {
         </nav>
         <a
           href={`mailto:${profile.email}`}
-          className="rounded-full bg-feishu-blue px-3.5 py-1.5 text-xs font-medium text-white shadow-sm transition hover:bg-feishu-blue-hover"
+          className="rounded-full bg-brand-blue px-3.5 py-1.5 text-xs font-medium text-white shadow-sm transition hover:bg-brand-blue-hover"
         >
           联系我
         </a>

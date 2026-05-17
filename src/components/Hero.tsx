@@ -33,8 +33,8 @@ export function Hero() {
           className="mb-6 inline-flex items-center gap-2 rounded-full border border-ink-100 bg-white/70 px-4 py-1.5 text-sm text-ink-500 shadow-sm backdrop-blur"
         >
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-feishu-green opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-feishu-green" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-green opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-green" />
           </span>
           <span>正在寻找合适的机会</span>
           <span className="text-ink-200">·</span>
@@ -81,14 +81,14 @@ export function Hero() {
             >
               <a
                 href="#experience"
-                className="group inline-flex items-center gap-2 rounded-full bg-feishu-blue px-5 py-2.5 text-sm font-medium text-white shadow-feishu transition hover:bg-feishu-blue-hover hover:shadow-feishu-lg"
+                className="group inline-flex items-center gap-2 rounded-full bg-brand-blue px-5 py-2.5 text-sm font-medium text-white shadow-soft transition hover:bg-brand-blue-hover hover:shadow-soft-lg"
               >
                 查看我的故事
                 <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
               </a>
               <a
                 href={`mailto:${profile.email}`}
-                className="inline-flex items-center gap-2 rounded-full border border-ink-100 bg-white/80 px-5 py-2.5 text-sm font-medium text-ink-700 backdrop-blur transition hover:border-feishu-blue hover:text-feishu-blue"
+                className="inline-flex items-center gap-2 rounded-full border border-ink-100 bg-white/80 px-5 py-2.5 text-sm font-medium text-ink-700 backdrop-blur transition hover:border-brand-blue hover:text-brand-blue"
               >
                 <Mail className="h-4 w-4" />
                 联系我
@@ -121,7 +121,7 @@ export function Hero() {
                   href={l.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1 text-feishu-blue transition hover:opacity-80"
+                  className="inline-flex items-center gap-1 text-brand-blue transition hover:opacity-80"
                 >
                   {l.label}
                   <ExternalLink className="h-3.5 w-3.5" />
@@ -156,8 +156,8 @@ export function Hero() {
             className="relative mx-auto"
           >
             <div className="relative h-44 w-44 md:h-56 md:w-56">
-              <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-feishu-blue via-feishu-purple to-pink-400 opacity-40 blur-2xl" />
-              <div className="relative flex h-full w-full animate-floaty items-center justify-center overflow-hidden rounded-3xl border border-white/60 bg-white shadow-feishu-lg">
+              <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-brand-blue via-brand-purple to-pink-400 opacity-40 blur-2xl" />
+              <div className="relative flex h-full w-full animate-floaty items-center justify-center overflow-hidden rounded-3xl border border-white/60 bg-white shadow-soft-lg">
                 <img
                   src={profile.avatar}
                   alt={profile.name}
@@ -182,7 +182,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 + i * 0.08 }}
               whileHover={{ y: -4 }}
-              className="glass-card rounded-2xl p-5 shadow-feishu transition hover:shadow-feishu-lg"
+              className="glass-card rounded-2xl p-5 shadow-soft transition hover:shadow-soft-lg"
             >
               <div className="flex items-baseline gap-1">
                 <span className="text-3xl font-semibold text-ink-900 md:text-4xl">
