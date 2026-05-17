@@ -68,7 +68,10 @@ export interface ProjectItem {
   name: string
   role: string
   period: string
+  /** 单张封面图(向后兼容,优先级低于 gallery) */
   cover?: string
+  /** 轮播图,提供多张时左右切换;不传则使用 cover */
+  gallery?: { src: string; caption?: string }[]
   description: RichParagraph
   highlights: RichParagraph[]
   media?: MediaItem[]
@@ -233,6 +236,24 @@ export const projects: ProjectItem[] = [
     period: '2024.07 — 2025.01',
     cover:
       'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600',
+    gallery: [
+      {
+        src: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600',
+        caption: 'AI 数字人直播间',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1600',
+        caption: '短视频内容矩阵',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1600',
+        caption: '团队复盘 OKR 评审',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1600',
+        caption: 'GMV 数据看板',
+      },
+    ],
     description: [
       { type: 'text', content: '主导一支 4 人团队,以 AI 数字人口播 + ' },
       { type: 'link', content: '视频号小店', href: 'https://channels.weixin.qq.com/' },

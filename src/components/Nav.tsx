@@ -5,7 +5,7 @@ import { openContactCard } from './ContactCard'
 
 const items = [
   { id: 'experience', label: '实习经历' },
-  { id: 'projects', label: '项目' },
+  { id: 'projects', label: '项目经历' },
   { id: 'skills', label: '技能' },
   { id: 'education', label: '教育' },
   { id: 'awards', label: '荣誉' },
