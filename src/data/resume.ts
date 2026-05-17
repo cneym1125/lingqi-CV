@@ -153,7 +153,7 @@ export const experiences: ExperienceItem[] = [
       description:
         'AutoMQ 是一款基于云原生架构、对 Apache Kafka 协议 100% 兼容的下一代消息与流处理平台。通过将存储层卸载到对象存储(S3 等),实现真正的存算分离与秒级弹性,大幅降低 Kafka 集群的运维与资源成本,适用于大规模实时数据流场景。',
       href: 'https://www.automq.com/',
-      logo: '/logos/automq.png',
+      logo: '/logos/automq-full.svg',
     },
     summary: [
       { type: 'text', content: '负责官网 Blog 的视觉体系与海内外社媒扩散,并自研 ' },

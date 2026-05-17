@@ -58,7 +58,7 @@ export function InfoBadge({ name, description, href, logo }: Props) {
         }
       >
         {logo ? (
-          <img src={logo} alt={name} className="h-4 w-auto select-none" />
+          <img src={logo} alt={name} className="h-5 w-auto select-none" />
         ) : (
           <>
             <span>{name}</span>
