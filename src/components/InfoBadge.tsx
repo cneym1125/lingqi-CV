@@ -6,15 +6,16 @@ interface Props {
   name: string
   description: string
   href?: string
+  /** 若提供则徽章只显示 logo;否则显示文字 + ⓘ 图标 */
+  logo?: string
 }
 
 /** 紧凑徽章 + 鼠标悬停 / 点击展开的信息卡片(支持移动端) */
-export function InfoBadge({ name, description, href }: Props) {
+export function InfoBadge({ name, description, href, logo }: Props) {
   const [open, setOpen] = useState(false)
   const wrapRef = useRef<HTMLDivElement>(null)
   const closeTimer = useRef<number | null>(null)
 
-  // 点击外部关闭(移动端)
   useEffect(() => {
     if (!open) return
     const onDocClick = (e: MouseEvent) => {
@@ -50,10 +51,20 @@ export function InfoBadge({ name, description, href }: Props) {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-label={`${name} 介绍`}
-        className="group inline-flex items-center gap-1 rounded-full border border-brand-blue/20 bg-brand-blue/5 px-2.5 py-1 text-xs font-medium text-brand-blue transition hover:border-brand-blue/40 hover:bg-brand-blue/10"
+        className={
+          logo
+            ? 'group inline-flex h-7 items-center justify-center rounded-lg border border-ink-100 bg-white px-2.5 transition hover:border-brand-blue/40 hover:shadow-soft'
+            : 'group inline-flex items-center gap-1 rounded-full border border-brand-blue/20 bg-brand-blue/5 px-2.5 py-1 text-xs font-medium text-brand-blue transition hover:border-brand-blue/40 hover:bg-brand-blue/10'
+        }
       >
-        <span>{name}</span>
-        <Info className="h-3.5 w-3.5 opacity-70 transition group-hover:opacity-100" />
+        {logo ? (
+          <img src={logo} alt={name} className="h-4 w-auto select-none" />
+        ) : (
+          <>
+            <span>{name}</span>
+            <Info className="h-3.5 w-3.5 opacity-70 transition group-hover:opacity-100" />
+          </>
+        )}
       </button>
 
       <AnimatePresence>
@@ -68,7 +79,6 @@ export function InfoBadge({ name, description, href }: Props) {
             role="tooltip"
             className="absolute left-1/2 top-full z-30 mt-2 w-72 -translate-x-1/2 rounded-2xl border border-ink-100 bg-white p-4 text-left shadow-soft-lg"
           >
-            {/* 小三角 */}
             <div className="absolute -top-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-l border-t border-ink-100 bg-white" />
             <div className="relative">
               <div className="mb-1.5 flex items-center justify-between gap-2">

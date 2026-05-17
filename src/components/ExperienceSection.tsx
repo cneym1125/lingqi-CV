@@ -58,6 +58,7 @@ export function ExperienceSection() {
                         name={e.product.name}
                         description={e.product.description}
                         href={e.product.href}
+                        logo={e.product.logo}
                       />
                     )}
                     <div className="rounded-full bg-brand-blue-soft px-3 py-1 text-xs font-medium text-brand-blue">
