@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, MapPin, Mail, Phone, ExternalLink } from 'lucide-react'
 import { useRef } from 'react'
 import { profile } from '../data/resume'
+import { openContactCard } from './ContactCard'
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null)
@@ -86,13 +87,14 @@ export function Hero() {
                 查看我的故事
                 <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
               </a>
-              <a
-                href={`mailto:${profile.email}`}
+              <button
+                type="button"
+                onClick={openContactCard}
                 className="inline-flex items-center gap-2 rounded-full border border-ink-100 bg-white/80 px-5 py-2.5 text-sm font-medium text-ink-700 backdrop-blur transition hover:border-brand-blue hover:text-brand-blue"
               >
                 <Mail className="h-4 w-4" />
                 联系我
-              </a>
+              </button>
             </motion.div>
 
             <motion.div

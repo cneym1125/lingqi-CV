@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { profile } from '../data/resume'
+import { openContactCard } from './ContactCard'
 
 const items = [
   { id: 'experience', label: '实习经历' },
@@ -77,12 +78,13 @@ export function Nav() {
             </a>
           ))}
         </nav>
-        <a
-          href={`mailto:${profile.email}`}
+        <button
+          type="button"
+          onClick={openContactCard}
           className="rounded-full bg-brand-blue px-3.5 py-1.5 text-xs font-medium text-white shadow-sm transition hover:bg-brand-blue-hover"
         >
           联系我
-        </a>
+        </button>
       </div>
     </motion.header>
   )

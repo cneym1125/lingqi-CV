@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Mail, MapPin, Phone, ArrowUpRight } from 'lucide-react'
 import { Section } from './Section'
 import { profile } from '../data/resume'
+import { openContactCard } from './ContactCard'
 
 export function ContactSection() {
   return (
@@ -44,13 +45,14 @@ export function ContactSection() {
               )}
             </div>
           </div>
-          <a
-            href={`mailto:${profile.email}`}
+          <button
+            type="button"
+            onClick={openContactCard}
             className="group inline-flex items-center gap-2 self-start rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand-blue shadow-lg transition hover:bg-white/95 md:self-end"
           >
-            发送邮件
+            查看联系方式
             <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </a>
+          </button>
         </div>
       </motion.div>
 

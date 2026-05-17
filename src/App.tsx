@@ -8,6 +8,7 @@ import { AwardsSection } from './components/AwardsSection'
 import { SelfEvalSection } from './components/SelfEvalSection'
 import { ContactSection } from './components/ContactSection'
 import { ScrollProgress } from './components/ScrollProgress'
+import { ContactCardHost } from './components/ContactCard'
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
         <SelfEvalSection />
         <ContactSection />
       </main>
+      <ContactCardHost />
     </div>
   )
 }

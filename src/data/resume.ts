@@ -21,6 +21,7 @@ export interface Profile {
   location: string
   email: string
   phone?: string
+  wechat?: string
   birth?: string
   gender?: string
   meta?: { label: string; value: string }[]
@@ -112,6 +113,7 @@ export const profile: Profile = {
   location: '浙江 · 杭州',
   email: '3240215750@qq.com',
   phone: '13326372934',
+  wechat: 'L3215663031',
   birth: '2003.07',
   gender: '男',
   meta: [
