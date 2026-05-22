@@ -1,146 +1,90 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowRight, MapPin, Mail, Phone, ExternalLink } from 'lucide-react'
-import { useRef } from 'react'
+import { motion } from 'framer-motion'
+import { MapPin, Mail, Phone } from 'lucide-react'
 import { profile } from '../data/resume'
 import { openContactCard } from './ContactCard'
+import { Spotlight } from './ui/Spotlight'
+import { SplineScene } from './ui/SplineScene'
 
 export function Hero() {
-  const ref = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  })
-  const y = useTransform(scrollYProgress, [0, 1], [0, 120])
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0])
-
   return (
-    <section
-      ref={ref}
-      className="relative isolate overflow-hidden pt-28 pb-24 md:pt-36 md:pb-32"
-    >
-      <div className="aurora" />
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-grid-fade"
-      />
-      <motion.div
-        style={{ y, opacity }}
-        className="relative mx-auto max-w-6xl px-6"
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-ink-100 bg-white/70 px-4 py-1.5 text-sm text-ink-500 shadow-sm backdrop-blur"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-green opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-green" />
-          </span>
-          <span>正在寻找合适的机会</span>
-          <span className="text-ink-200">·</span>
-          <span>{profile.location}</span>
-        </motion.div>
+    <section className="relative pt-20 pb-10 md:pt-24 md:pb-16">
+      <div className="mx-auto max-w-6xl px-6">
+        {/* 深色主卡片 */}
+        <div className="relative w-full overflow-hidden rounded-3xl border border-white/[0.08] bg-black/[0.96] shadow-soft-lg">
+          <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
 
-        <div className="grid grid-cols-1 items-center gap-10">
-          <div>
-            <motion.h1
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.05 }}
-              className="text-5xl font-semibold tracking-tight text-ink-900 md:text-7xl"
-            >
-              你好,我是 <span className="text-brand-blue">{profile.name}</span>
-              {profile.enName && (
-                <span className="block pt-2 text-2xl font-normal text-ink-300 md:text-3xl">
-                  {profile.enName}
-                </span>
-              )}
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.25 }}
-              className="mt-5 max-w-2xl text-base leading-relaxed text-ink-500 md:text-lg"
-            >
-              {profile.tagline}
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.35 }}
-              className="mt-8 flex flex-wrap items-center gap-3"
-            >
-              <a
-                href="#experience"
-                className="group inline-flex items-center gap-2 rounded-full bg-brand-blue px-5 py-2.5 text-sm font-medium text-white shadow-soft transition hover:bg-brand-blue-hover hover:shadow-soft-lg"
-              >
-                查看我的故事
-                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-              </a>
-              <button
-                type="button"
-                onClick={openContactCard}
-                className="inline-flex items-center gap-2 rounded-full border border-ink-100 bg-white/80 px-5 py-2.5 text-sm font-medium text-ink-700 backdrop-blur transition hover:border-brand-blue hover:text-brand-blue"
-              >
-                <Mail className="h-4 w-4" />
-                联系我
-              </button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.45 }}
-              className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-ink-500"
-            >
-              <span className="inline-flex items-center gap-1.5">
-                <MapPin className="h-4 w-4" />
-                {profile.location}
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <Mail className="h-4 w-4" />
-                {profile.email}
-              </span>
-              {profile.phone && (
-                <span className="inline-flex items-center gap-1.5">
-                  <Phone className="h-4 w-4" />
-                  {profile.phone}
-                </span>
-              )}
-              {profile.links.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1 text-brand-blue transition hover:opacity-80"
-                >
-                  {l.label}
-                  <ExternalLink className="h-3.5 w-3.5" />
-                </a>
-              ))}
-            </motion.div>
-
-            {profile.meta && profile.meta.length > 0 && (
+          <div className="flex min-h-[480px] flex-col md:flex-row">
+            {/* 左侧文字 */}
+            <div className="relative z-10 flex flex-1 flex-col justify-center p-8 md:p-12">
               <motion.div
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="mt-4 flex flex-wrap gap-2"
+                transition={{ duration: 0.7 }}
               >
-                {profile.meta.map((m) => (
-                  <span
-                    key={m.label}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-ink-100 bg-white/70 px-3 py-1 text-xs text-ink-500 backdrop-blur"
-                  >
-                    <span className="text-ink-300">{m.label}</span>
-                    <span className="font-medium text-ink-700">{m.value}</span>
+                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-neutral-400 backdrop-blur">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-green-400" />
                   </span>
-                ))}
+                  正在寻找合适的机会
+                </div>
+
+                <h1 className="bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
+                  {profile.name}
+                </h1>
+                {profile.enName && (
+                  <span className="mt-1 block text-lg text-neutral-500">
+                    {profile.enName}
+                  </span>
+                )}
+
+                <p className="mt-4 max-w-lg text-base leading-relaxed text-neutral-300">
+                  {profile.tagline}
+                </p>
+
+                <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-neutral-400">
+                  <span className="inline-flex items-center gap-1.5">
+                    <MapPin className="h-4 w-4" />
+                    {profile.location}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <Mail className="h-4 w-4" />
+                    {profile.email}
+                  </span>
+                  {profile.phone && (
+                    <span className="inline-flex items-center gap-1.5">
+                      <Phone className="h-4 w-4" />
+                      {profile.phone}
+                    </span>
+                  )}
+                </div>
+
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                  <a
+                    href="#experience"
+                    className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black transition hover:bg-neutral-200"
+                  >
+                    查看我的故事
+                  </a>
+                  <button
+                    type="button"
+                    onClick={openContactCard}
+                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-medium text-white backdrop-blur transition hover:bg-white/10"
+                  >
+                    <Mail className="h-4 w-4" />
+                    联系我
+                  </button>
+                </div>
               </motion.div>
-            )}
+            </div>
+
+            {/* 右侧 3D 场景 */}
+            <div className="relative flex-1">
+              <SplineScene
+                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                className="h-full w-full"
+              />
+            </div>
           </div>
         </div>
 
@@ -148,15 +92,15 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.55 }}
-          className="mt-16 grid grid-cols-2 gap-3 md:mt-20 md:grid-cols-4 md:gap-5"
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5"
         >
           {profile.highlights.map((h, i) => (
             <motion.div
               key={h.label}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 + i * 0.08 }}
+              transition={{ duration: 0.6, delay: 0.4 + i * 0.08 }}
               whileHover={{ y: -4 }}
               className="glass-card rounded-2xl p-5 shadow-soft transition hover:shadow-soft-lg"
             >
@@ -174,7 +118,7 @@ export function Hero() {
             </motion.div>
           ))}
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   )
 }
