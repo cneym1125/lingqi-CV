@@ -57,6 +57,8 @@ export interface ExperienceItem {
     href?: string
     logo?: string
   }
+  /** 轮播图 */
+  gallery?: { src: string; caption?: string }[]
   summary: RichParagraph
   bullets: RichParagraph[]
   media?: MediaItem[]
@@ -158,6 +160,11 @@ export const experiences: ExperienceItem[] = [
       href: 'https://www.automq.com/',
       logo: '/logos/automq-full.svg',
     },
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800', caption: '团队协作' },
+      { src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800', caption: 'SEO 数据分析' },
+      { src: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800', caption: '内容运营工作台' },
+    ],
     summary: [
       { type: 'text', content: '负责官网 Blog 的视觉体系与海内外社媒扩散,并自研 ' },
       { type: 'link', content: 'Python', href: 'https://www.python.org/' },
@@ -207,6 +214,11 @@ export const experiences: ExperienceItem[] = [
     period: '2025.06 — 2025.09',
     location: '杭州',
     logo: 'https://api.dicebear.com/9.x/shapes/svg?seed=Astuo',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800', caption: '短视频矩阵运营' },
+      { src: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800', caption: '数据分析工具' },
+      { src: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800', caption: '选题策划' },
+    ],
     summary: [
       { type: 'text', content: '负责短视频矩阵账号的内容产出与数据增长,并自研数据管理工具实现留资与播放量自动统计。' },
     ],
