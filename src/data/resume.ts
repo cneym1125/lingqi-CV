@@ -214,6 +214,11 @@ export const experiences: ExperienceItem[] = [
     period: '2025.06 — 2025.09',
     location: '杭州',
     logo: 'https://api.dicebear.com/9.x/shapes/svg?seed=Astuo',
+    product: {
+      name: '91助手',
+      description: '91助手相关产品',
+      logo: '/logos/91zs.png',
+    },
     gallery: [
       { src: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800', caption: '短视频矩阵运营' },
       { src: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800', caption: '数据分析工具' },
