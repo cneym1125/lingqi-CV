@@ -30,8 +30,10 @@ export function ProjectsSection() {
             >
               {/* 左侧：3D 轮播（正方形） */}
               {slides.length > 0 && (
-                <div className="relative aspect-square overflow-visible p-6 md:p-8">
-                  <Carousel slides={slides} className="h-full" />
+                <div className="relative flex items-center justify-center overflow-visible p-6 md:p-8">
+                  <div className="aspect-square w-3/4">
+                    <Carousel slides={slides} className="h-full" />
+                  </div>
                 </div>
               )}
 
