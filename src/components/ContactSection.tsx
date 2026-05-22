@@ -3,6 +3,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { Section } from './Section'
 import { openContactCard } from './ContactCard'
 import { Spotlight } from './ui/Spotlight'
+import { MouseSpotlight } from './ui/MouseSpotlight'
 
 export function ContactSection() {
   return (
@@ -15,6 +16,7 @@ export function ContactSection() {
         className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-black/[0.96] p-8 text-white shadow-soft-lg md:p-12"
       >
         <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
+        <MouseSpotlight size={200} />
 
         <div className="relative grid grid-cols-1 gap-8 md:grid-cols-[1fr_auto] md:items-center">
           <div>
