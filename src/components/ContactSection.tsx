@@ -19,7 +19,7 @@ export function ContactSection() {
         <div className="relative grid grid-cols-1 gap-8 md:grid-cols-[1fr_auto] md:items-center">
           <div>
             <h3 className="text-2xl font-semibold md:text-3xl">
-              欢迎和我聊聊新机会、合作或开源协作
+              期待与您进一步沟通！
             </h3>
             <p className="mt-3 max-w-2xl text-neutral-400">
               我会在 24 小时内回复每一封邮件,期待你的故事。
