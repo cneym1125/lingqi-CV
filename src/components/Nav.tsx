@@ -7,7 +7,6 @@ const items = [
   { id: 'skills', label: '技能' },
   { id: 'education', label: '教育' },
   { id: 'awards', label: '荣誉' },
-  { id: 'about', label: '自我评价' },
   { id: 'contact', label: '联系' },
 ]
 

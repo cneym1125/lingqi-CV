@@ -5,7 +5,6 @@ import { ProjectsSection } from './components/ProjectsSection'
 import { SkillsSection } from './components/SkillsSection'
 import { EducationSection } from './components/EducationSection'
 import { AwardsSection } from './components/AwardsSection'
-import { SelfEvalSection } from './components/SelfEvalSection'
 import { ContactSection } from './components/ContactSection'
 import { ScrollProgress } from './components/ScrollProgress'
 import { ContactCardHost } from './components/ContactCard'
@@ -22,7 +21,6 @@ export default function App() {
         <SkillsSection />
         <EducationSection />
         <AwardsSection />
-        <SelfEvalSection />
         <ContactSection />
       </main>
       <ContactCardHost />
