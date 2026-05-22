@@ -20,9 +20,9 @@ export function MediaGallery({ items }: { items: MediaItem[] }) {
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.5, delay: i * 0.06 }}
             whileHover={{ y: -3 }}
-            className="group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-[#141416] text-left shadow-[0_4px_12px_rgba(0,0,0,0.4)] transition hover:shadow-[0_4px_12px_rgba(0,0,0,0.4)]-lg"
+            className="group relative overflow-hidden rounded-2xl border border-ink-100 bg-white text-left shadow-soft transition hover:shadow-soft-lg"
           >
-            <div className="relative aspect-video overflow-hidden bg-white/[0.04]">
+            <div className="relative aspect-video overflow-hidden bg-ink-50">
               <img
                 src={m.type === 'video' ? m.poster ?? m.src : m.src}
                 alt={m.caption ?? ''}
@@ -30,15 +30,15 @@ export function MediaGallery({ items }: { items: MediaItem[] }) {
                 loading="lazy"
               />
               {m.type === 'video' && (
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/60 to-transparent">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#141416]/90 text-brand-blue shadow-[0_4px_12px_rgba(0,0,0,0.4)]-lg transition group-hover:scale-110">
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/40 to-transparent">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 text-brand-blue shadow-soft-lg transition group-hover:scale-110">
                     <Play className="ml-0.5 h-6 w-6 fill-current" />
                   </span>
                 </div>
               )}
             </div>
             {m.caption && (
-              <div className="px-4 py-3 text-sm text-neutral-400">{m.caption}</div>
+              <div className="px-4 py-3 text-sm text-ink-500">{m.caption}</div>
             )}
           </motion.button>
         ))}

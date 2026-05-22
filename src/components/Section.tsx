@@ -22,7 +22,7 @@ export function Section({ id, title, children }: Props) {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-10"
         >
-          <h2 className="text-3xl font-semibold text-neutral-100 md:text-4xl">
+          <h2 className="text-3xl font-semibold text-ink-900 md:text-4xl">
             {title}
           </h2>
         </motion.div>

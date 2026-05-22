@@ -26,7 +26,7 @@ export function ProjectsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.6 }}
-              className="grid grid-cols-1 overflow-visible rounded-3xl border border-white/[0.06] bg-[#141416] shadow-[0_4px_12px_rgba(0,0,0,0.4)] transition hover:shadow-[0_4px_12px_rgba(0,0,0,0.4)]-lg md:grid-cols-2"
+              className="grid grid-cols-1 overflow-visible rounded-3xl border border-ink-100 bg-white shadow-soft transition hover:shadow-soft-lg md:grid-cols-2"
             >
               {/* 左侧：3D 轮播（正方形） */}
               {slides.length > 0 && (
@@ -40,16 +40,16 @@ export function ProjectsSection() {
               {/* 右侧：文字内容 */}
               <div className="flex flex-col justify-center p-6 md:p-8">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <h3 className="text-xl font-semibold text-neutral-100 md:text-2xl">
+                  <h3 className="text-xl font-semibold text-ink-900 md:text-2xl">
                     {p.name}
                   </h3>
-                  <span className="rounded-full bg-brand-blue/10 px-3 py-1 text-xs font-medium text-brand-blue">
+                  <span className="rounded-full bg-brand-blue-soft px-3 py-1 text-xs font-medium text-brand-blue">
                     {p.period}
                   </span>
                 </div>
-                <div className="mt-1 text-sm text-neutral-400">{p.role}</div>
+                <div className="mt-1 text-sm text-ink-500">{p.role}</div>
 
-                <p className="mt-4 leading-relaxed text-neutral-300">
+                <p className="mt-4 leading-relaxed text-ink-700">
                   <RichText paragraph={p.description} />
                 </p>
 
@@ -57,7 +57,7 @@ export function ProjectsSection() {
                   {p.highlights.map((h, j) => (
                     <li
                       key={j}
-                      className="flex gap-2.5 text-[15px] leading-relaxed text-neutral-300"
+                      className="flex gap-2.5 text-[15px] leading-relaxed text-ink-700"
                     >
                       <span className="mt-2 inline-block h-1.5 w-1.5 flex-none rounded-full bg-brand-purple" />
                       <span>
@@ -72,7 +72,7 @@ export function ProjectsSection() {
                     {p.tags.map((t) => (
                       <span
                         key={t}
-                        className="rounded-md bg-white/[0.04] px-2 py-0.5 text-xs font-medium text-neutral-400"
+                        className="rounded-md bg-ink-50 px-2 py-0.5 text-xs font-medium text-ink-500"
                       >
                         {t}
                       </span>
@@ -88,7 +88,7 @@ export function ProjectsSection() {
                         href={l.href}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.06] px-3 py-1.5 text-xs font-medium text-neutral-300 transition hover:border-brand-blue hover:text-brand-blue"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-ink-100 px-3 py-1.5 text-xs font-medium text-ink-700 transition hover:border-brand-blue hover:text-brand-blue"
                       >
                         {l.label}
                         <ExternalLink className="h-3 w-3" />

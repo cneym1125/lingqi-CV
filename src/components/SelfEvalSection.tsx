@@ -30,21 +30,21 @@ export function SelfEvalSection() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.55, delay: i * 0.08 }}
               whileHover={{ y: -4 }}
-              className="group relative overflow-hidden rounded-3xl border border-white/[0.06] bg-[#141416] p-6 shadow-[0_4px_12px_rgba(0,0,0,0.4)] transition hover:shadow-[0_4px_12px_rgba(0,0,0,0.4)]-lg"
+              className="group relative overflow-hidden rounded-3xl border border-ink-100 bg-white p-6 shadow-soft transition hover:shadow-soft-lg"
             >
               <div
                 aria-hidden
                 className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-brand-blue/10 to-brand-purple/10 blur-2xl transition group-hover:scale-110"
               />
               <div className="relative flex items-start gap-4">
-                <div className="flex h-11 w-11 flex-none items-center justify-center rounded-2xl bg-gradient-to-br from-brand-blue to-brand-purple text-white shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
+                <div className="flex h-11 w-11 flex-none items-center justify-center rounded-2xl bg-gradient-to-br from-brand-blue to-brand-purple text-white shadow-soft">
                   <Icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-neutral-100">
+                  <h3 className="text-lg font-semibold text-ink-900">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-neutral-300">
+                  <p className="mt-2 text-[15px] leading-relaxed text-ink-700">
                     <RichText paragraph={item.content} />
                   </p>
                 </div>

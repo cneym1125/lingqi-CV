@@ -8,11 +8,11 @@ export function ProofList({ proofs }: { proofs?: Proof[] }) {
   if (!proofs?.length) return null
   return (
     <>
-      <div className="mt-5 flex items-center gap-2 text-xs font-medium text-neutral-400">
+      <div className="mt-5 flex items-center gap-2 text-xs font-medium text-ink-500">
         <ShieldCheck className="h-4 w-4 text-brand-green" />
         <span>证明材料</span>
-        <span className="text-neutral-600">·</span>
-        <span className="text-neutral-500">{proofs.length} 项</span>
+        <span className="text-ink-200">·</span>
+        <span className="text-ink-300">{proofs.length} 项</span>
       </div>
       <div className="mt-3 flex flex-wrap gap-3">
         {proofs.map((p, i) => (
@@ -31,9 +31,9 @@ export function ProofList({ proofs }: { proofs?: Proof[] }) {
                 setActive(p)
               }
             }}
-            className="group flex items-center gap-3 rounded-2xl border border-white/[0.06] bg-[#141416] px-3 py-2.5 text-left shadow-[0_4px_12px_rgba(0,0,0,0.4)] transition hover:border-brand-blue/30 hover:shadow-[0_4px_12px_rgba(0,0,0,0.4)]-lg"
+            className="group flex items-center gap-3 rounded-2xl border border-ink-100 bg-white px-3 py-2.5 text-left shadow-soft transition hover:border-brand-blue/30 hover:shadow-soft-lg"
           >
-            <div className="h-10 w-10 overflow-hidden rounded-lg bg-white/[0.04]">
+            <div className="h-10 w-10 overflow-hidden rounded-lg bg-ink-50">
               {p.thumbnail ? (
                 <img
                   src={p.thumbnail}
@@ -42,21 +42,21 @@ export function ProofList({ proofs }: { proofs?: Proof[] }) {
                   loading="lazy"
                 />
               ) : (
-                <div className="flex h-full w-full items-center justify-center text-neutral-500">
+                <div className="flex h-full w-full items-center justify-center text-ink-300">
                   <FileText className="h-5 w-5" />
                 </div>
               )}
             </div>
             <div>
-              <div className="text-sm font-medium text-neutral-100 group-hover:text-brand-blue">
+              <div className="text-sm font-medium text-ink-900 group-hover:text-brand-blue">
                 {p.title}
               </div>
               {p.description && (
-                <div className="text-xs text-neutral-400">{p.description}</div>
+                <div className="text-xs text-ink-500">{p.description}</div>
               )}
             </div>
             {p.type === 'link' && (
-              <ExternalLink className="ml-1 h-4 w-4 text-neutral-500" />
+              <ExternalLink className="ml-1 h-4 w-4 text-ink-300" />
             )}
           </motion.button>
         ))}
@@ -74,7 +74,7 @@ export function ProofList({ proofs }: { proofs?: Proof[] }) {
           >
             <button
               type="button"
-              className="absolute right-5 top-5 rounded-full bg-[#141416]/10 p-2 text-white transition hover:bg-[#141416]/20"
+              className="absolute right-5 top-5 rounded-full bg-white/85 p-2 text-white transition hover:bg-white/20"
               onClick={() => setActive(null)}
             >
               <X className="h-5 w-5" />

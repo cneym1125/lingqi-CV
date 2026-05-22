@@ -39,7 +39,7 @@ export function Nav() {
       transition={{ duration: 0.6 }}
       className={`fixed inset-x-0 top-0 z-50 transition ${
         scrolled
-          ? 'border-b border-white/[0.06]/70 bg-[#141416]/70 backdrop-blur-md'
+          ? 'border-b border-ink-100/70 bg-white/70 backdrop-blur-md'
           : 'bg-transparent'
       }`}
     >
@@ -52,13 +52,13 @@ export function Nav() {
               className={`relative rounded-full px-3 py-1.5 text-sm transition ${
                 active === it.id
                   ? 'text-brand-blue'
-                  : 'text-neutral-400 hover:text-neutral-100'
+                  : 'text-ink-500 hover:text-ink-900'
               }`}
             >
               {active === it.id && (
                 <motion.span
                   layoutId="nav-active"
-                  className="absolute inset-0 -z-10 rounded-full bg-brand-blue/10"
+                  className="absolute inset-0 -z-10 rounded-full bg-brand-blue-soft"
                   transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                 />
               )}

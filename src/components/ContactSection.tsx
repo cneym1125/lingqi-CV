@@ -17,7 +17,7 @@ export function ContactSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
-        className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-blue via-[#5B7CFF] to-brand-purple p-8 text-white shadow-[0_4px_12px_rgba(0,0,0,0.4)]-lg md:p-12"
+        className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-blue via-[#5B7CFF] to-brand-purple p-8 text-white shadow-soft-lg md:p-12"
       >
         <div className="aurora opacity-40" />
         <div className="relative grid grid-cols-1 gap-8 md:grid-cols-[1fr_auto] md:items-end">
@@ -48,7 +48,7 @@ export function ContactSection() {
           <button
             type="button"
             onClick={openContactCard}
-            className="group inline-flex items-center gap-2 self-start rounded-full bg-[#141416] px-5 py-3 text-sm font-semibold text-brand-blue shadow-lg transition hover:bg-[#141416]/95 md:self-end"
+            className="group inline-flex items-center gap-2 self-start rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand-blue shadow-lg transition hover:bg-white/95 md:self-end"
           >
             查看联系方式
             <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -56,13 +56,13 @@ export function ContactSection() {
         </div>
       </motion.div>
 
-      <footer className="mt-10 flex flex-wrap items-center justify-between gap-3 text-sm text-neutral-500">
+      <footer className="mt-10 flex flex-wrap items-center justify-between gap-3 text-sm text-ink-300">
         <span>
           © {new Date().getFullYear()} {profile.name} · 用 ❤️ 与 React 制作
         </span>
         <a
           href="#top"
-          className="text-neutral-500 transition hover:text-brand-blue"
+          className="text-ink-300 transition hover:text-brand-blue"
         >
           回到顶部 ↑
         </a>

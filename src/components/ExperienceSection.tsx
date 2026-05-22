@@ -29,25 +29,25 @@ export function ExperienceSection() {
               className="relative pl-10 md:pl-14"
             >
               {/* 节点 */}
-              <div className="absolute left-0 top-1.5 flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-brand-blue shadow-[0_4px_12px_rgba(0,0,0,0.4)] md:left-1">
-                <div className="h-2 w-2 rounded-full bg-[#141416]" />
+              <div className="absolute left-0 top-1.5 flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-brand-blue shadow-soft md:left-1">
+                <div className="h-2 w-2 rounded-full bg-white" />
               </div>
-              <div className="glass-card rounded-3xl p-6 shadow-[0_4px_12px_rgba(0,0,0,0.4)] transition hover:shadow-[0_4px_12px_rgba(0,0,0,0.4)]-lg md:p-8">
+              <div className="glass-card rounded-3xl p-6 shadow-soft transition hover:shadow-soft-lg md:p-8">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="flex items-center gap-3">
                     {e.logo && (
-                      <div className="h-12 w-12 overflow-hidden rounded-xl border border-white/[0.06] bg-[#141416]">
+                      <div className="h-12 w-12 overflow-hidden rounded-xl border border-ink-100 bg-white">
                         <img src={e.logo} alt="" className="h-full w-full" />
                       </div>
                     )}
                     <div>
-                      <div className="text-xl font-semibold text-neutral-100">
+                      <div className="text-xl font-semibold text-ink-900">
                         {e.role}
                       </div>
-                      <div className="text-sm text-neutral-400">
+                      <div className="text-sm text-ink-500">
                         {e.company}
                         {e.location && (
-                          <span className="ml-2 text-neutral-500">· {e.location}</span>
+                          <span className="ml-2 text-ink-300">· {e.location}</span>
                         )}
                       </div>
                     </div>
@@ -61,13 +61,13 @@ export function ExperienceSection() {
                         logo={e.product.logo}
                       />
                     )}
-                    <div className="rounded-full bg-brand-blue/10 px-3 py-1 text-xs font-medium text-brand-blue">
+                    <div className="rounded-full bg-brand-blue-soft px-3 py-1 text-xs font-medium text-brand-blue">
                       {e.period}
                     </div>
                   </div>
                 </div>
 
-                <p className="mt-5 text-base leading-relaxed text-neutral-300">
+                <p className="mt-5 text-base leading-relaxed text-ink-700">
                   <RichText paragraph={e.summary} />
                 </p>
 
@@ -75,7 +75,7 @@ export function ExperienceSection() {
                   {e.bullets.map((b, j) => (
                     <li
                       key={j}
-                      className="flex gap-3 text-[15px] leading-relaxed text-neutral-300"
+                      className="flex gap-3 text-[15px] leading-relaxed text-ink-700"
                     >
                       <span className="mt-2 inline-block h-1.5 w-1.5 flex-none rounded-full bg-brand-blue" />
                       <span>

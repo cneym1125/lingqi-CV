@@ -53,8 +53,8 @@ export function InfoBadge({ name, description, href, logo }: Props) {
         aria-label={`${name} 介绍`}
         className={
           logo
-            ? 'group inline-flex h-7 items-center justify-center rounded-lg border border-white/[0.06] bg-[#141416] px-2.5 transition hover:border-brand-blue/40 hover:shadow-[0_4px_12px_rgba(0,0,0,0.4)]'
-            : 'group inline-flex items-center gap-1 rounded-full border border-brand-blue/20 bg-brand-blue/5 px-2.5 py-1 text-xs font-medium text-brand-blue transition hover:border-brand-blue/40 hover:bg-brand-blue/10'
+            ? 'group inline-flex h-7 items-center justify-center rounded-lg border border-ink-100 bg-white px-2.5 transition hover:border-brand-blue/40 hover:shadow-soft'
+            : 'group inline-flex items-center gap-1 rounded-full border border-brand-blue/20 bg-brand-blue/5 px-2.5 py-1 text-xs font-medium text-brand-blue transition hover:border-brand-blue/40 hover:bg-brand-blue-soft'
         }
       >
         {logo ? (
@@ -77,12 +77,12 @@ export function InfoBadge({ name, description, href, logo }: Props) {
             onMouseEnter={show}
             onMouseLeave={scheduleHide}
             role="tooltip"
-            className="absolute left-1/2 top-full z-30 mt-2 w-72 -translate-x-1/2 rounded-2xl border border-white/[0.06] bg-[#141416] p-4 text-left shadow-[0_4px_12px_rgba(0,0,0,0.4)]-lg"
+            className="absolute left-1/2 top-full z-30 mt-2 w-72 -translate-x-1/2 rounded-2xl border border-ink-100 bg-white p-4 text-left shadow-soft-lg"
           >
-            <div className="absolute -top-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-l border-t border-white/[0.06] bg-[#141416]" />
+            <div className="absolute -top-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-l border-t border-ink-100 bg-white" />
             <div className="relative">
               <div className="mb-1.5 flex items-center justify-between gap-2">
-                <span className="text-sm font-semibold text-neutral-100">
+                <span className="text-sm font-semibold text-ink-900">
                   {name}
                 </span>
                 {href && (
@@ -98,7 +98,7 @@ export function InfoBadge({ name, description, href, logo }: Props) {
                   </a>
                 )}
               </div>
-              <p className="text-xs leading-relaxed text-neutral-400">
+              <p className="text-xs leading-relaxed text-ink-500">
                 {description}
               </p>
             </div>

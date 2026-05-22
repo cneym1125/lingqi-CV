@@ -22,7 +22,7 @@ export function AwardsSection() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: i * 0.05 }}
             whileHover={{ y: -3 }}
-            className="rounded-2xl border border-white/[0.06] bg-[#141416] p-5 shadow-[0_4px_12px_rgba(0,0,0,0.4)] transition hover:shadow-[0_4px_12px_rgba(0,0,0,0.4)]-lg"
+            className="rounded-2xl border border-ink-100 bg-white p-5 shadow-soft transition hover:shadow-soft-lg"
           >
             <div className="flex items-start gap-3">
               <div className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-gradient-to-tr from-amber-200 to-amber-400 text-white">
@@ -30,12 +30,12 @@ export function AwardsSection() {
               </div>
               <div className="flex-1">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <h3 className="font-semibold text-neutral-100">{a.title}</h3>
-                  <span className="text-xs text-neutral-500">{a.date}</span>
+                  <h3 className="font-semibold text-ink-900">{a.title}</h3>
+                  <span className="text-xs text-ink-300">{a.date}</span>
                 </div>
-                <div className="text-sm text-neutral-400">{a.issuer}</div>
+                <div className="text-sm text-ink-500">{a.issuer}</div>
                 {a.description && (
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-300">
+                  <p className="mt-2 text-sm leading-relaxed text-ink-700">
                     <RichText paragraph={a.description} />
                   </p>
                 )}
