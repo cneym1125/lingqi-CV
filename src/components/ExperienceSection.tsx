@@ -10,7 +10,7 @@ import { Carousel } from './Carousel'
 export function ExperienceSection() {
   return (
     <Section id="experience" title="实习经历">
-      <div className="space-y-10">
+      <div className="space-y-6">
         {experiences.map((e, i) => {
           const slides = e.gallery && e.gallery.length > 0 ? e.gallery : []
 

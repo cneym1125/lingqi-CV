@@ -10,7 +10,7 @@ import { Carousel } from './Carousel'
 export function ProjectsSection() {
   return (
     <Section id="projects" title="项目经历">
-      <div className="space-y-10">
+      <div className="space-y-6">
         {projects.map((p, i) => {
           const slides =
             p.gallery && p.gallery.length > 0

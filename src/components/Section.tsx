@@ -13,14 +13,14 @@ interface Props {
 
 export function Section({ id, title, children }: Props) {
   return (
-    <section id={id} className="relative scroll-mt-24 py-20 md:py-28">
+    <section id={id} className="relative scroll-mt-20 py-10 md:py-14">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-10"
+          className="mb-6"
         >
           <h2 className="text-3xl font-semibold text-ink-900 md:text-4xl">
             {title}
