@@ -58,7 +58,7 @@ export function MouseSpotlight({ className = '', size = 300 }: Props) {
   return (
     <motion.div
       ref={containerRef}
-      className={`pointer-events-none absolute rounded-full blur-[80px] transition-opacity duration-300 ${
+      className={`pointer-events-none absolute rounded-full blur-[50px] transition-opacity duration-300 ${
         isHovered ? 'opacity-100' : 'opacity-0'
       } ${className}`}
       style={{
@@ -67,7 +67,7 @@ export function MouseSpotlight({ className = '', size = 300 }: Props) {
         left: spotlightLeft,
         top: spotlightTop,
         background:
-          'radial-gradient(circle at center, rgba(255,255,255,0.7), rgba(255,255,255,0.35) 40%, transparent 70%)',
+          'radial-gradient(circle at center, rgba(255,255,255,0.9), rgba(255,255,255,0.5) 40%, transparent 70%)',
       }}
     />
   )
