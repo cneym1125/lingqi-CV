@@ -13,7 +13,7 @@ export function Hero() {
         <div className="relative w-full overflow-hidden rounded-3xl border border-white/[0.08] bg-black/[0.96] shadow-soft-lg">
           <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
 
-          <div className="flex min-h-[480px] flex-col md:flex-row">
+          <div className="flex min-h-[420px] flex-col md:flex-row">
             {/* 左侧文字 */}
             <div className="relative z-10 flex flex-1 flex-col justify-center p-8 md:p-12">
               <motion.div
@@ -78,7 +78,7 @@ export function Hero() {
               </motion.div>
             </div>
 
-            {/* 右侧 3D 场景 */}
+            {/* 右侧 3D 机器人 */}
             <div className="relative flex-1">
               <SplineScene
                 scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"

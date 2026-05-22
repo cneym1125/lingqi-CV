@@ -9,26 +9,23 @@ import { SelfEvalSection } from './components/SelfEvalSection'
 import { ContactSection } from './components/ContactSection'
 import { ScrollProgress } from './components/ScrollProgress'
 import { ContactCardHost } from './components/ContactCard'
-import { AuroraBackground } from './components/ui/AuroraBackground'
 
 export default function App() {
   return (
-    <AuroraBackground>
-      <div id="top" className="relative min-h-screen">
-        <ScrollProgress />
-        <Nav />
-        <main>
-          <Hero />
-          <ExperienceSection />
-          <ProjectsSection />
-          <SkillsSection />
-          <EducationSection />
-          <AwardsSection />
-          <SelfEvalSection />
-          <ContactSection />
-        </main>
-        <ContactCardHost />
-      </div>
-    </AuroraBackground>
+    <div id="top" className="relative min-h-screen bg-zinc-50">
+      <ScrollProgress />
+      <Nav />
+      <main>
+        <Hero />
+        <ExperienceSection />
+        <ProjectsSection />
+        <SkillsSection />
+        <EducationSection />
+        <AwardsSection />
+        <SelfEvalSection />
+        <ContactSection />
+      </main>
+      <ContactCardHost />
+    </div>
   )
 }
