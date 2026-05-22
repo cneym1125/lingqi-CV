@@ -1,54 +1,34 @@
 import { motion } from 'framer-motion'
-import { Mail, MapPin, Phone, ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { Section } from './Section'
-import { profile } from '../data/resume'
 import { openContactCard } from './ContactCard'
+import { Spotlight } from './ui/Spotlight'
 
 export function ContactSection() {
   return (
-    <Section
-      id="contact"
-      eyebrow="CONTACT"
-      title="一起聊聊"
-      description="如果你看到了这里,我们很可能会聊得来。"
-    >
+    <Section id="contact" title="一起聊聊">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
-        className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-blue via-[#5B7CFF] to-brand-purple p-8 text-white shadow-soft-lg md:p-12"
+        className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-black/[0.96] p-8 text-white shadow-soft-lg md:p-12"
       >
-        <div className="aurora opacity-40" />
-        <div className="relative grid grid-cols-1 gap-8 md:grid-cols-[1fr_auto] md:items-end">
+        <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
+
+        <div className="relative grid grid-cols-1 gap-8 md:grid-cols-[1fr_auto] md:items-center">
           <div>
             <h3 className="text-2xl font-semibold md:text-3xl">
               欢迎和我聊聊新机会、合作或开源协作
             </h3>
-            <p className="mt-3 max-w-2xl text-white/80">
+            <p className="mt-3 max-w-2xl text-neutral-400">
               我会在 24 小时内回复每一封邮件,期待你的故事。
             </p>
-            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/85">
-              <span className="inline-flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                {profile.location}
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <Mail className="h-4 w-4" />
-                {profile.email}
-              </span>
-              {profile.phone && (
-                <span className="inline-flex items-center gap-2">
-                  <Phone className="h-4 w-4" />
-                  {profile.phone}
-                </span>
-              )}
-            </div>
           </div>
           <button
             type="button"
             onClick={openContactCard}
-            className="group inline-flex items-center gap-2 self-start rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand-blue shadow-lg transition hover:bg-white/95 md:self-end"
+            className="group inline-flex items-center gap-2 self-start rounded-full bg-white px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:bg-neutral-200 md:self-center"
           >
             查看联系方式
             <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
