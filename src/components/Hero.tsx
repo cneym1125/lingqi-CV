@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
-import { MapPin, Mail, Phone } from 'lucide-react'
+import { Mail } from 'lucide-react'
 import { profile } from '../data/resume'
 import { openContactCard } from './ContactCard'
 import { Spotlight } from './ui/Spotlight'
 import { SplineScene } from './ui/SplineScene'
+import { MouseSpotlight } from './ui/MouseSpotlight'
 
 export function Hero() {
   return (
@@ -12,6 +13,7 @@ export function Hero() {
         {/* 深色主卡片 */}
         <div className="relative w-full overflow-hidden rounded-3xl border border-white/[0.08] bg-black/[0.96] shadow-soft-lg">
           <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
+          <MouseSpotlight size={350} />
 
           <div className="flex min-h-[420px] flex-col md:flex-row">
             {/* 左侧文字 */}
