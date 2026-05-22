@@ -56,10 +56,7 @@ export function ContactSection() {
         </div>
       </motion.div>
 
-      <footer className="mt-10 flex flex-wrap items-center justify-between gap-3 text-sm text-ink-300">
-        <span>
-          © {new Date().getFullYear()} {profile.name} · 用 ❤️ 与 React 制作
-        </span>
+      <footer className="mt-10 flex items-center justify-end text-sm text-ink-300">
         <a
           href="#top"
           className="text-ink-300 transition hover:text-brand-blue"
