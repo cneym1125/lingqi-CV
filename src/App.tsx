@@ -9,8 +9,8 @@ export default function App() {
     <div id="top" className="relative min-h-screen bg-zinc-50">
       <main>
         <Hero />
-        <ExperienceSection />
         <ProjectsSection />
+        <ExperienceSection />
         <ContactSection />
       </main>
       <ContactCardHost />
