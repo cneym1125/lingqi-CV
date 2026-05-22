@@ -37,15 +37,6 @@ export function ContactSection() {
           </button>
         </div>
       </motion.div>
-
-      <footer className="mt-10 flex items-center justify-end text-sm text-ink-300">
-        <a
-          href="#top"
-          className="text-ink-300 transition hover:text-brand-blue"
-        >
-          回到顶部 ↑
-        </a>
-      </footer>
     </Section>
   )
 }
