@@ -31,6 +31,8 @@ export function Carousel({ slides, autoplay = true, className = '' }: Props) {
   const [lightboxOpen, setLightboxOpen] = useState<number | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const touchStartX = useRef(0)
+  const touchEndX = useRef(0)
   const total = slides.length
 
   // 响应式宽度
@@ -63,6 +65,22 @@ export function Carousel({ slides, autoplay = true, className = '' }: Props) {
     setActiveIndex((prev) => (prev - 1 + total) % total)
     if (autoplayRef.current) clearInterval(autoplayRef.current)
   }, [total])
+
+  // 触摸滑动
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+    touchEndX.current = e.touches[0].clientX
+  }
+  const onTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX
+  }
+  const onTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) handleNext()
+      else handlePrev()
+    }
+  }
 
   // 3D 变换
   function getImageStyle(index: number): React.CSSProperties {
@@ -123,6 +141,9 @@ export function Carousel({ slides, autoplay = true, className = '' }: Props) {
           ref={containerRef}
           className="relative mx-auto w-full flex-1"
           style={{ perspective: '1000px' }}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
           {slides.map((slide, index) => (
             <img
