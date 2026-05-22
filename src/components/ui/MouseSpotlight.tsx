@@ -67,7 +67,7 @@ export function MouseSpotlight({ className = '', size = 300 }: Props) {
         left: spotlightLeft,
         top: spotlightTop,
         background:
-          'radial-gradient(circle at center, rgba(255,255,255,0.25), rgba(255,255,255,0.1) 40%, transparent 70%)',
+          'radial-gradient(circle at center, rgba(255,255,255,0.7), rgba(255,255,255,0.35) 40%, transparent 70%)',
       }}
     />
   )
