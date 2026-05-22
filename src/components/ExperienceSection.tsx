@@ -23,17 +23,8 @@ export function ExperienceSection() {
               transition={{ duration: 0.6 }}
               className="grid grid-cols-1 overflow-visible rounded-3xl border border-ink-100 bg-white shadow-soft transition hover:shadow-soft-lg md:grid-cols-2"
             >
-              {/* 左侧：轮播图 */}
-              {slides.length > 0 && (
-                <div className="relative flex items-center justify-center overflow-visible p-6 md:p-8">
-                  <div className="aspect-square w-3/4">
-                    <Carousel slides={slides} className="h-full" />
-                  </div>
-                </div>
-              )}
-
-              {/* 右侧：文字内容 */}
-              <div className="flex flex-col justify-center p-6 md:p-8">
+              {/* 右侧（桌面）/ 上方（手机）：文字内容 */}
+              <div className="flex flex-col justify-center p-6 md:order-2 md:p-8">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <h3 className="text-xl font-semibold text-ink-900 md:text-2xl">
                     {e.role}
@@ -87,6 +78,15 @@ export function ExperienceSection() {
 
                 <ProofList proofs={e.proofs} />
               </div>
+
+              {/* 左侧（桌面）/ 下方（手机）：轮播图 */}
+              {slides.length > 0 && (
+                <div className="relative flex items-center justify-center overflow-visible p-6 md:order-1 md:p-8">
+                  <div className="aspect-square w-3/4">
+                    <Carousel slides={slides} className="h-full" />
+                  </div>
+                </div>
+              )}
             </motion.div>
           )
         })}

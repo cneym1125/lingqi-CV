@@ -58,7 +58,7 @@ export function MouseSpotlight({ className = '', size = 300 }: Props) {
   return (
     <motion.div
       ref={containerRef}
-      className={`pointer-events-none absolute rounded-full blur-[50px] transition-opacity duration-300 ${
+      className={`pointer-events-none absolute hidden rounded-full blur-[50px] transition-opacity duration-300 md:block ${
         isHovered ? 'opacity-100' : 'opacity-0'
       } ${className}`}
       style={{
