@@ -43,7 +43,7 @@ export function Lightbox({ items, openIndex, onClose }: Props) {
         >
           <button
             type="button"
-            className="absolute right-5 top-5 rounded-full bg-white/10 p-2 text-white transition hover:bg-white/20"
+            className="absolute right-5 top-5 rounded-full bg-[#141416]/10 p-2 text-white transition hover:bg-[#141416]/20"
             onClick={onClose}
             aria-label="关闭"
           >
@@ -53,7 +53,7 @@ export function Lightbox({ items, openIndex, onClose }: Props) {
           {idx > 0 && (
             <button
               type="button"
-              className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition hover:bg-white/20"
+              className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-[#141416]/10 p-3 text-white transition hover:bg-[#141416]/20"
               onClick={(e) => {
                 e.stopPropagation()
                 setIdx((i) => Math.max(0, i - 1))
@@ -65,7 +65,7 @@ export function Lightbox({ items, openIndex, onClose }: Props) {
           {idx < items.length - 1 && (
             <button
               type="button"
-              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition hover:bg-white/20"
+              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-[#141416]/10 p-3 text-white transition hover:bg-[#141416]/20"
               onClick={(e) => {
                 e.stopPropagation()
                 setIdx((i) => Math.min(items.length - 1, i + 1))

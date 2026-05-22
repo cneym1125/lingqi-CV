@@ -120,7 +120,7 @@ export function ContactCard({ open, onClose }: Props) {
             exit={{ opacity: 0, y: 16, scale: 0.97 }}
             transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-md overflow-hidden rounded-3xl bg-white shadow-2xl"
+            className="relative w-full max-w-md overflow-hidden rounded-3xl bg-[#141416] shadow-2xl"
           >
             {/* 顶部装饰条 */}
             <div className="relative h-16 overflow-hidden bg-gradient-to-br from-brand-blue via-[#5B7CFF] to-brand-purple">
@@ -129,7 +129,7 @@ export function ContactCard({ open, onClose }: Props) {
                 type="button"
                 onClick={onClose}
                 aria-label="关闭"
-                className="absolute right-3 top-3 rounded-full bg-white/20 p-1.5 text-white transition hover:bg-white/30"
+                className="absolute right-3 top-3 rounded-full bg-[#141416]/20 p-1.5 text-white transition hover:bg-[#141416]/30"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -139,7 +139,7 @@ export function ContactCard({ open, onClose }: Props) {
             <div className="-mt-12 flex flex-col items-center px-6">
               <div className="relative">
                 <div className="absolute -inset-1.5 rounded-[28px] bg-gradient-to-br from-brand-blue to-brand-purple opacity-25 blur-md" />
-                <div className="relative h-24 w-24 overflow-hidden rounded-3xl border-4 border-white bg-white shadow-soft-lg">
+                <div className="relative h-24 w-24 overflow-hidden rounded-3xl border-4 border-[#1a1a1e] bg-[#141416] shadow-[0_4px_12px_rgba(0,0,0,0.4)]-lg">
                   <img
                     src={profile.avatar}
                     alt={profile.name}
@@ -148,11 +148,11 @@ export function ContactCard({ open, onClose }: Props) {
                 </div>
               </div>
               <div className="mt-4 text-center">
-                <div className="text-xl font-semibold text-ink-900">
+                <div className="text-xl font-semibold text-neutral-100">
                   {profile.name}
                 </div>
-                <div className="mt-1 text-sm text-ink-500">{profile.title}</div>
-                <div className="mt-1.5 inline-flex items-center gap-1 text-xs text-ink-300">
+                <div className="mt-1 text-sm text-neutral-400">{profile.title}</div>
+                <div className="mt-1.5 inline-flex items-center gap-1 text-xs text-neutral-500">
                   <MapPin className="h-3 w-3" />
                   {profile.location}
                 </div>
@@ -168,23 +168,23 @@ export function ContactCard({ open, onClose }: Props) {
                   return (
                     <div
                       key={r.key}
-                      className="group flex items-center gap-3 rounded-2xl border border-ink-100 bg-ink-50/40 p-3 transition hover:border-brand-blue/30 hover:bg-white"
+                      className="group flex items-center gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.04]/40 p-3 transition hover:border-brand-blue/30 hover:bg-[#141416]"
                     >
                       <div
-                        className={`flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-gradient-to-br ${r.accent} text-white shadow-soft`}
+                        className={`flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-gradient-to-br ${r.accent} text-white shadow-[0_4px_12px_rgba(0,0,0,0.4)]`}
                       >
                         <Icon className="h-5 w-5" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <div className="flex items-center gap-2 text-xs text-ink-500">
+                        <div className="flex items-center gap-2 text-xs text-neutral-400">
                           <span>{r.label}</span>
                           {r.hint && (
-                            <span className="hidden text-ink-300 sm:inline">
+                            <span className="hidden text-neutral-500 sm:inline">
                               · {r.hint}
                             </span>
                           )}
                         </div>
-                        <div className="mt-0.5 truncate font-mono text-sm font-medium text-ink-900">
+                        <div className="mt-0.5 truncate font-mono text-sm font-medium text-neutral-100">
                           {r.value}
                         </div>
                       </div>
@@ -194,7 +194,7 @@ export function ContactCard({ open, onClose }: Props) {
                         className={`relative flex h-9 items-center gap-1 rounded-full px-3 text-xs font-medium transition ${
                           copied
                             ? 'bg-emerald-50 text-emerald-600'
-                            : 'bg-white text-ink-700 hover:bg-brand-blue hover:text-white'
+                            : 'bg-[#141416] text-neutral-300 hover:bg-brand-blue hover:text-white'
                         }`}
                         aria-label={`复制${r.label}`}
                       >
@@ -234,14 +234,14 @@ export function ContactCard({ open, onClose }: Props) {
               {profile.email && (
                 <a
                   href={`mailto:${profile.email}`}
-                  className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:bg-brand-blue-hover hover:shadow-soft-lg"
+                  className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_12px_rgba(0,0,0,0.4)] transition hover:bg-brand-blue-hover hover:shadow-[0_4px_12px_rgba(0,0,0,0.4)]-lg"
                 >
                   <Mail className="h-4 w-4" />
                   打开邮箱客户端发送邮件
                 </a>
               )}
 
-              <p className="mt-3 text-center text-xs text-ink-300">
+              <p className="mt-3 text-center text-xs text-neutral-500">
                 按 Esc 关闭 · 点击任意复制按钮即可复制到剪贴板
               </p>
             </div>
