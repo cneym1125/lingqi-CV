@@ -34,21 +34,8 @@ export function Hero() {
                   {profile.tagline}
                 </p>
 
-                <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-neutral-400">
-                  <span className="inline-flex items-center gap-1.5">
-                    <MapPin className="h-4 w-4" />
-                    {profile.location}
-                  </span>
-                  <span className="inline-flex items-center gap-1.5">
-                    <Mail className="h-4 w-4" />
-                    {profile.email}
-                  </span>
-                  {profile.phone && (
-                    <span className="inline-flex items-center gap-1.5">
-                      <Phone className="h-4 w-4" />
-                      {profile.phone}
-                    </span>
-                  )}
+                <div className="mt-6 text-sm text-neutral-400">
+                  意向工作：产品 / AI 解决方案 / 产品运营等一切 AI Native 岗位
                 </div>
 
                 <div className="mt-8 flex flex-wrap items-center gap-3">
