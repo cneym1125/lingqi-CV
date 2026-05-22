@@ -117,12 +117,12 @@ export function Carousel({ slides, autoplay = true, className = '' }: Props) {
 
   return (
     <>
-      <div className={`relative w-full ${className}`}>
+      <div className={`relative flex h-full w-full flex-col ${className}`}>
         {/* 3D 图片容器 */}
         <div
           ref={containerRef}
-          className="relative mx-auto w-full"
-          style={{ height: '22rem', perspective: '1000px' }}
+          className="relative mx-auto w-full flex-1"
+          style={{ perspective: '1000px' }}
         >
           {slides.map((slide, index) => (
             <img

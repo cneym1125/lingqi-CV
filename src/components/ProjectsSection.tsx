@@ -26,88 +26,83 @@ export function ProjectsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.6 }}
-              className="overflow-visible rounded-3xl border border-ink-100 bg-white p-6 shadow-soft transition hover:shadow-soft-lg md:p-10"
+              className="grid grid-cols-1 overflow-visible rounded-3xl border border-ink-100 bg-white shadow-soft transition hover:shadow-soft-lg md:grid-cols-2"
             >
-              {/* 标题行 */}
-              <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-                <div>
+              {/* 左侧：3D 轮播（正方形） */}
+              {slides.length > 0 && (
+                <div className="relative aspect-square overflow-visible p-6 md:p-8">
+                  <Carousel slides={slides} className="h-full" />
+                </div>
+              )}
+
+              {/* 右侧：文字内容 */}
+              <div className="flex flex-col justify-center p-6 md:p-8">
+                <div className="flex flex-wrap items-center justify-between gap-2">
                   <h3 className="text-xl font-semibold text-ink-900 md:text-2xl">
                     {p.name}
                   </h3>
-                  <div className="mt-1 text-sm text-ink-500">{p.role}</div>
+                  <span className="rounded-full bg-brand-blue-soft px-3 py-1 text-xs font-medium text-brand-blue">
+                    {p.period}
+                  </span>
                 </div>
-                <span className="rounded-full bg-brand-blue-soft px-3 py-1 text-xs font-medium text-brand-blue">
-                  {p.period}
-                </span>
+                <div className="mt-1 text-sm text-ink-500">{p.role}</div>
+
+                <p className="mt-4 leading-relaxed text-ink-700">
+                  <RichText paragraph={p.description} />
+                </p>
+
+                <ul className="mt-3 space-y-2">
+                  {p.highlights.map((h, j) => (
+                    <li
+                      key={j}
+                      className="flex gap-2.5 text-[15px] leading-relaxed text-ink-700"
+                    >
+                      <span className="mt-2 inline-block h-1.5 w-1.5 flex-none rounded-full bg-brand-purple" />
+                      <span>
+                        <RichText paragraph={h} />
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                {p.tags && p.tags.length > 0 && (
+                  <div className="mt-5 flex flex-wrap gap-1.5">
+                    {p.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-md bg-ink-50 px-2 py-0.5 text-xs font-medium text-ink-500"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {p.links && p.links.length > 0 && (
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {p.links.map((l) => (
+                      <a
+                        key={l.href}
+                        href={l.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-ink-100 px-3 py-1.5 text-xs font-medium text-ink-700 transition hover:border-brand-blue hover:text-brand-blue"
+                      >
+                        {l.label}
+                        <ExternalLink className="h-3 w-3" />
+                      </a>
+                    ))}
+                  </div>
+                )}
+
+                {p.media && p.media.length > 0 && (
+                  <div className="mt-6">
+                    <MediaGallery items={p.media} />
+                  </div>
+                )}
+
+                <ProofList proofs={p.proofs} />
               </div>
-
-              {/* 3D 轮播图 */}
-              {slides.length > 0 && (
-                <div className="mb-8">
-                  <Carousel slides={slides} />
-                </div>
-              )}
-
-              {/* Tags */}
-              {p.tags && p.tags.length > 0 && (
-                <div className="mb-4 flex flex-wrap gap-1.5">
-                  {p.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-md bg-ink-50 px-2 py-0.5 text-xs font-medium text-ink-500"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              )}
-
-              {/* 描述 */}
-              <p className="leading-relaxed text-ink-700">
-                <RichText paragraph={p.description} />
-              </p>
-
-              {/* 亮点 */}
-              <ul className="mt-4 space-y-2">
-                {p.highlights.map((h, j) => (
-                  <li
-                    key={j}
-                    className="flex gap-2.5 text-[15px] leading-relaxed text-ink-700"
-                  >
-                    <span className="mt-2 inline-block h-1.5 w-1.5 flex-none rounded-full bg-brand-purple" />
-                    <span>
-                      <RichText paragraph={h} />
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* 链接 */}
-              {p.links && p.links.length > 0 && (
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {p.links.map((l) => (
-                    <a
-                      key={l.href}
-                      href={l.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-full border border-ink-100 px-3 py-1.5 text-xs font-medium text-ink-700 transition hover:border-brand-blue hover:text-brand-blue"
-                    >
-                      {l.label}
-                      <ExternalLink className="h-3 w-3" />
-                    </a>
-                  ))}
-                </div>
-              )}
-
-              {/* 媒体 */}
-              {p.media && p.media.length > 0 && (
-                <div className="mt-6">
-                  <MediaGallery items={p.media} />
-                </div>
-              )}
-
-              <ProofList proofs={p.proofs} />
             </motion.div>
           )
         })}
