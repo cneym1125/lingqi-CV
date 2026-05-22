@@ -42,7 +42,7 @@ export function Hero() {
           <span>{profile.location}</span>
         </motion.div>
 
-        <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-[1fr_auto]">
+        <div className="grid grid-cols-1 items-center gap-10">
           <div>
             <motion.h1
               initial={{ opacity: 0, y: 28 }}
@@ -50,7 +50,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.05 }}
               className="text-5xl font-semibold tracking-tight text-ink-900 md:text-7xl"
             >
-              你好,我是 <span className="text-gradient">{profile.name}</span>
+              你好,我是 <span className="text-brand-blue">{profile.name}</span>
               {profile.enName && (
                 <span className="block pt-2 text-2xl font-normal text-ink-300 md:text-3xl">
                   {profile.enName}
@@ -60,16 +60,8 @@ export function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-              className="mt-5 text-xl font-medium text-ink-700 md:text-2xl"
-            >
-              {profile.title}
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.25 }}
-              className="mt-4 max-w-2xl text-base leading-relaxed text-ink-500 md:text-lg"
+              className="mt-5 max-w-2xl text-base leading-relaxed text-ink-500 md:text-lg"
             >
               {profile.tagline}
             </motion.p>
@@ -150,24 +142,6 @@ export function Hero() {
               </motion.div>
             )}
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85, rotate: -6 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mx-auto"
-          >
-            <div className="relative h-44 w-44 md:h-56 md:w-56">
-              <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-brand-blue via-brand-purple to-pink-400 opacity-40 blur-2xl" />
-              <div className="relative flex h-full w-full animate-floaty items-center justify-center overflow-hidden rounded-3xl border border-white/60 bg-white shadow-soft-lg">
-                <img
-                  src={profile.avatar}
-                  alt={profile.name}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
-          </motion.div>
         </div>
 
         {/* 数据卡片 */}
