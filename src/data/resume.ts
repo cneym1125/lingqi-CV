@@ -116,7 +116,7 @@ export const profile: Profile = {
   enName: 'Li Zhe',
   title: 'AI 内容运营 / 自动化工具开发',
   tagline:
-    '用 AI 与代码把内容运营做成可复制的工程化能力,从 0 到 1 跑通增长闭环。',
+    '用 AI 与代码把各种任务做成可复制的工程化能力,从 0 到 1 跑通增长闭环。',
   // 你的真实头像可以替换为 /avatar.jpg 后放到 public 目录
   avatar:
     'https://api.dicebear.com/9.x/notionists/svg?seed=LiZhe&backgroundColor=b6e3f4',
