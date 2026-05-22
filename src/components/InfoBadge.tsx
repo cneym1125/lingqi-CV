@@ -6,11 +6,9 @@ interface Props {
   name: string
   description: string
   href?: string
-  /** 若提供则徽章只显示 logo;否则显示文字 + ⓘ 图标 */
   logo?: string
 }
 
-/** 紧凑徽章 + 鼠标悬停 / 点击展开的信息卡片(支持移动端) */
 export function InfoBadge({ name, description, href, logo }: Props) {
   const [open, setOpen] = useState(false)
   const wrapRef = useRef<HTMLDivElement>(null)
@@ -42,31 +40,27 @@ export function InfoBadge({ name, description, href, logo }: Props) {
   return (
     <div
       ref={wrapRef}
-      className="relative inline-flex"
+      className="relative inline-flex items-center gap-1.5"
       onMouseEnter={show}
       onMouseLeave={scheduleHide}
     >
+      {/* Logo（无边框） */}
+      {logo && (
+        <img src={logo} alt={name} className="h-5 w-auto select-none" />
+      )}
+
+      {/* 感叹号圆形按钮 */}
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-label={`${name} 介绍`}
-        className={
-          logo
-            ? 'group inline-flex h-7 items-center justify-center rounded-lg border border-ink-100 bg-white px-2.5 transition hover:border-brand-blue/40 hover:shadow-soft'
-            : 'group inline-flex items-center gap-1 rounded-full border border-brand-blue/20 bg-brand-blue/5 px-2.5 py-1 text-xs font-medium text-brand-blue transition hover:border-brand-blue/40 hover:bg-brand-blue-soft'
-        }
+        className="flex h-5 w-5 items-center justify-center rounded-full bg-ink-100 text-ink-500 transition hover:bg-brand-blue hover:text-white"
       >
-        {logo ? (
-          <img src={logo} alt={name} className="h-5 w-auto select-none" />
-        ) : (
-          <>
-            <span>{name}</span>
-            <Info className="h-3.5 w-3.5 opacity-70 transition group-hover:opacity-100" />
-          </>
-        )}
+        <Info className="h-3 w-3" />
       </button>
 
+      {/* 悬停卡片 */}
       <AnimatePresence>
         {open && (
           <motion.div
