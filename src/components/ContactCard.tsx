@@ -59,7 +59,6 @@ export function ContactCard({ open, onClose }: Props) {
       icon: MessageCircle,
       label: '微信',
       value: profile.wechat,
-      hint: '加好友请备注来意',
       accent: 'from-emerald-400 to-emerald-600',
     },
     {
@@ -68,7 +67,6 @@ export function ContactCard({ open, onClose }: Props) {
       label: '手机',
       value: profile.phone,
       href: profile.phone ? `tel:${profile.phone}` : undefined,
-      hint: '工作时间 9:00 - 22:00',
       accent: 'from-sky-400 to-sky-600',
     },
     {
@@ -77,7 +75,6 @@ export function ContactCard({ open, onClose }: Props) {
       label: '邮箱',
       value: profile.email,
       href: `mailto:${profile.email}`,
-      hint: '24 小时内必回',
       accent: 'from-violet-400 to-violet-600',
     },
   ].filter((r) => !!r.value) as ContactRow[]
@@ -241,7 +238,6 @@ export function ContactCard({ open, onClose }: Props) {
               )}
 
               <p className="mt-3 text-center text-xs text-neutral-600">
-                按 Esc 关闭 · 点击任意复制按钮即可复制到剪贴板
               </p>
             </div>
           </motion.div>
