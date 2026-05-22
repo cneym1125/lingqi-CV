@@ -54,9 +54,9 @@ export function Hero() {
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <a
                     href="#experience"
-                    className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black transition hover:bg-neutral-200"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-medium text-white backdrop-blur transition hover:bg-white/10"
                   >
-                    查看我的故事
+                    查看简介
                   </a>
                   <button
                     type="button"
