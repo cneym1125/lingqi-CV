@@ -6,7 +6,7 @@ import { Spotlight } from './ui/Spotlight'
 
 export function ContactSection() {
   return (
-    <Section id="contact" title="一起聊聊">
+    <Section id="contact" title="欢迎沟通">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
