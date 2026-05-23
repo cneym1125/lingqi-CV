@@ -151,8 +151,8 @@ export function Carousel({ slides, autoplay = true, className = '' }: Props) {
               src={slide.src}
               alt={slide.caption ?? ''}
               onClick={() => setLightboxOpen(index)}
-              className="absolute inset-0 h-full w-full cursor-pointer rounded-2xl object-cover shadow-lg"
-              style={getImageStyle(index)}
+              className="absolute inset-0 h-full w-full cursor-pointer rounded-2xl object-contain shadow-lg"
+              style={{ ...getImageStyle(index), background: '#f5f6f7', padding: '8px' }}
               loading="lazy"
               draggable={false}
             />

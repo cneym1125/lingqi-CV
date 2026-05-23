@@ -161,9 +161,9 @@ export const experiences: ExperienceItem[] = [
       logo: '/logos/automq.png',
     },
     gallery: [
-      { src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800', caption: '团队协作' },
-      { src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800', caption: 'SEO 数据分析' },
-      { src: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800', caption: '内容运营工作台' },
+      { src: '/images/automq/独立完成官网blog页面.png', caption: '独立完成官网 Blog 页面' },
+      { src: '/images/automq/全blog banner一致性设计.png', caption: '全 Blog Banner 一致性设计' },
+      { src: '/images/automq/独立撰写的blog.png', caption: '独立撰写的 Blog' },
     ],
     summary: [
       { type: 'text', content: '负责官网 Blog 的视觉体系与海内外社媒扩散,并自研 ' },
@@ -221,9 +221,9 @@ export const experiences: ExperienceItem[] = [
       logo: '/logos/91zs.png',
     },
     gallery: [
-      { src: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800', caption: '短视频矩阵运营' },
-      { src: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800', caption: '数据分析工具' },
-      { src: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800', caption: '选题策划' },
+      { src: '/images/91zs/自研快速获取各账号数据工具.jpg', caption: '自研快速获取各账号数据工具' },
+      { src: '/images/91zs/数据快速同步工具.png', caption: '数据快速同步工具' },
+      { src: '/images/91zs/团队工作量信息获取工具.png', caption: '团队工作量信息获取工具' },
     ],
     summary: [
       { type: 'text', content: '负责短视频矩阵账号的内容产出与数据增长,并自研数据管理工具实现留资与播放量自动统计。' },
@@ -255,22 +255,10 @@ export const projects: ProjectItem[] = [
     cover:
       'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600',
     gallery: [
-      {
-        src: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600',
-        caption: 'AI 数字人直播间',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1600',
-        caption: '短视频内容矩阵',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1600',
-        caption: '团队复盘 OKR 评审',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1600',
-        caption: 'GMV 数据看板',
-      },
+      { src: '/images/project/一些直播盯盘后台.jpg', caption: '直播盯盘后台' },
+      { src: '/images/project/部分出单账单.png', caption: '部分出单账单' },
+      { src: '/images/project/自研提效工具.png', caption: '自研提效工具' },
+      { src: '/images/project/大学科技园入驻协议书.jpg', caption: '大学科技园入驻协议书' },
     ],
     description: [
       { type: 'text', content: '主导一支 4 人团队,以 AI 数字人口播 + ' },
