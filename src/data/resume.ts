@@ -216,7 +216,7 @@ export const experiences: ExperienceItem[] = [
     logo: 'https://api.dicebear.com/9.x/shapes/svg?seed=Astuo',
     product: {
       name: '91再生',
-      description: '91再生是国内领先的再生资源产业互联网平台,聚焦废塑料、废金属等大宗再生物资的在线交易与供应链服务,通过数字化手段连接上下游,提升再生资源行业的流通效率与透明度。',
+      description: '91再生（原中国再生资源交易网）是国内领先的再生资源 B2B 交易平台，注册会员 200万+，平台产品信息 1700万+ 条，覆盖废塑料、废金属、废纸等大宗再生物资，是行业内规模最大的数字化交易平台之一。',
       href: 'https://www.zz91.com/',
       logo: '/logos/91zs.png',
     },
