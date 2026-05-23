@@ -99,10 +99,8 @@ export function ProjectsSection() {
 
               {/* 左侧（桌面）/ 下方（手机）：轮播图 */}
               {slides.length > 0 && (
-                <div className="relative flex items-center justify-center overflow-visible p-6 md:order-1 md:p-8">
-                  <div className="aspect-square w-full">
-                    <Carousel slides={slides} className="h-full" />
-                  </div>
+                <div className="overflow-hidden rounded-b-3xl md:order-1 md:rounded-l-3xl md:rounded-br-none">
+                  <Carousel slides={slides} />
                 </div>
               )}
             </motion.div>
