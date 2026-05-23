@@ -7,7 +7,7 @@ import { MouseSpotlight } from './ui/MouseSpotlight'
 
 export function ContactSection() {
   return (
-    <Section id="contact" title="欢迎沟通">
+    <Section id="contact" title="欢迎联系">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -23,9 +23,6 @@ export function ContactSection() {
             <h3 className="text-2xl font-semibold md:text-3xl">
               期待与您进一步沟通！
             </h3>
-            <p className="mt-3 max-w-2xl text-neutral-400">
-              我会在 24 小时内回复每一封邮件,期待你的故事。
-            </p>
           </div>
           <button
             type="button"
