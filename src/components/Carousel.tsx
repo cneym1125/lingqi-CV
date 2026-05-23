@@ -152,7 +152,7 @@ export function Carousel({ slides, autoplay = true, className = '' }: Props) {
               alt={slide.caption ?? ''}
               onClick={() => setLightboxOpen(index)}
               className="absolute inset-0 h-full w-full cursor-pointer rounded-2xl object-contain shadow-lg"
-              style={{ ...getImageStyle(index), background: '#f5f6f7', padding: '8px' }}
+              style={{ ...getImageStyle(index), background: '#f5f6f7', padding: '4px' }}
               loading="lazy"
               draggable={false}
             />

@@ -82,7 +82,7 @@ export function ExperienceSection() {
               {/* 左侧（桌面）/ 下方（手机）：轮播图 */}
               {slides.length > 0 && (
                 <div className="relative flex items-center justify-center overflow-visible p-6 md:order-1 md:p-8">
-                  <div className="aspect-square w-3/4">
+                  <div className="aspect-square w-full">
                     <Carousel slides={slides} className="h-full" />
                   </div>
                 </div>
