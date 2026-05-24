@@ -120,7 +120,7 @@ export function ContactCard({ open, onClose }: Props) {
             className="relative w-full max-w-md overflow-hidden rounded-3xl bg-[#141416] border border-white/[0.08] shadow-2xl"
           >
             {/* 顶部装饰条 */}
-            <div className="relative h-8 overflow-hidden bg-gradient-to-br from-brand-blue/20 via-brand-purple/10 to-transparent">
+            <div className="relative h-16 overflow-hidden bg-gradient-to-br from-brand-blue/20 via-brand-purple/10 to-transparent">
               <button
                 type="button"
                 onClick={onClose}
@@ -131,8 +131,18 @@ export function ContactCard({ open, onClose }: Props) {
               </button>
             </div>
 
+            {/* 头像 + 姓名 */}
+            <div className="-mt-10 flex flex-col items-center px-6">
+              <div className="relative h-20 w-20 overflow-hidden rounded-2xl border-4 border-[#141416] bg-[#1a1a1e] shadow-soft-lg">
+                <img src={profile.avatar} alt={profile.name} className="h-full w-full object-cover" />
+              </div>
+              <div className="mt-3 text-center">
+                <div className="text-lg font-semibold text-neutral-100">{profile.name}</div>
+              </div>
+            </div>
+
             {/* 联系方式列表 */}
-            <div className="px-5 pb-5 pt-5">
+            <div className="px-5 pb-5 pt-4">
               <div className="space-y-2.5">
                 {rows.map((r) => {
                   const Icon = r.icon
