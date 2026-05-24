@@ -121,7 +121,7 @@ export const profile: Profile = {
     '擅长用 AI 与代码把各种任务做成可复制的工程化能力,从 0 到 1 跑通过完整项目闭环。',
   // 你的真实头像可以替换为 /avatar.jpg 后放到 public 目录
   avatar:
-    'https://api.dicebear.com/9.x/notionists/svg?seed=LiZhe&backgroundColor=b6e3f4',
+    '/avatar.jpg',
   location: '浙江 · 杭州',
   email: '3240215750@qq.com',
   phone: '13326372934',
