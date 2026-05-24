@@ -26,7 +26,7 @@ export function ProjectsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.6 }}
-              className="grid grid-cols-1 overflow-visible rounded-3xl border border-ink-100 bg-white shadow-soft transition hover:shadow-soft-lg md:grid-cols-2"
+              className="grid grid-cols-1 overflow-hidden rounded-3xl border border-ink-100 bg-white shadow-soft transition hover:shadow-soft-lg md:grid-cols-2"
             >
               {/* 右侧（桌面）/ 上方（手机）：文字内容 */}
               <div className="flex flex-col justify-center p-6 md:order-2 md:p-8">
