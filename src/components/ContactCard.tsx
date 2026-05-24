@@ -120,7 +120,7 @@ export function ContactCard({ open, onClose }: Props) {
             className="relative w-full max-w-md overflow-hidden rounded-3xl bg-[#141416] border border-white/[0.08] shadow-2xl"
           >
             {/* 顶部装饰条 */}
-            <div className="relative h-16 overflow-hidden bg-gradient-to-br from-brand-blue/20 via-brand-purple/10 to-transparent">
+            <div className="relative h-8 overflow-hidden bg-gradient-to-br from-brand-blue/20 via-brand-purple/10 to-transparent">
               <button
                 type="button"
                 onClick={onClose}
@@ -129,30 +129,6 @@ export function ContactCard({ open, onClose }: Props) {
               >
                 <X className="h-4 w-4" />
               </button>
-            </div>
-
-            {/* 头像 + 姓名 */}
-            <div className="-mt-12 flex flex-col items-center px-6">
-              <div className="relative">
-                <div className="absolute -inset-1.5 rounded-[28px] bg-gradient-to-br from-brand-blue to-brand-purple opacity-25 blur-md" />
-                <div className="relative h-24 w-24 overflow-hidden rounded-3xl border-4 border-[#141416] bg-[#1a1a1e] shadow-soft-lg">
-                  <img
-                    src={profile.avatar}
-                    alt={profile.name}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <div className="text-xl font-semibold text-neutral-100">
-                  {profile.name}
-                </div>
-                <div className="mt-1 text-sm text-neutral-400">{profile.title}</div>
-                <div className="mt-1.5 inline-flex items-center gap-1 text-xs text-neutral-500">
-                  <MapPin className="h-3 w-3" />
-                  {profile.location}
-                </div>
-              </div>
             </div>
 
             {/* 联系方式列表 */}
