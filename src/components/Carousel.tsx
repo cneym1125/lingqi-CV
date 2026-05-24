@@ -12,6 +12,14 @@ interface Props {
   autoplay?: boolean
 }
 
+function calculateGap(width: number) {
+  const minGap = 30
+  const maxGap = 60
+  if (width <= 400) return minGap
+  if (width >= 800) return maxGap
+  return minGap + (maxGap - minGap) * ((width - 400) / 400)
+}
+
 export function Carousel({ slides, autoplay = true }: Props) {
   const [activeIndex, setActiveIndex] = useState(0)
   const [hoverPrev, setHoverPrev] = useState(false)
@@ -53,43 +61,33 @@ export function Carousel({ slides, autoplay = true }: Props) {
     if (Math.abs(diff) > 50) go(diff > 0 ? 1 : -1)
   }
 
-  // 3D 变换 — 只有 active 图片参与布局流，左右图片 absolute 叠在上面
-  const gap = Math.min(containerWidth * 0.14, 70)
-  const stickUp = gap * 0.65
+  const gap = calculateGap(containerWidth)
+  const stickUp = gap * 0.6
 
-  function getSideStyle(side: 'left' | 'right'): React.CSSProperties {
-    const x = side === 'left' ? -gap : gap
-    const ry = side === 'left' ? 12 : -12
-    return {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      zIndex: 2,
-      opacity: 0.85,
-      pointerEvents: 'auto',
-      transform: `translateX(${x}px) translateY(-${stickUp}px) scale(0.82) rotateY(${ry}deg)`,
-      transition: 'all 0.8s cubic-bezier(.4,2,.3,1)',
+  function getStyle(index: number): React.CSSProperties {
+    const isActive = index === activeIndex
+    const isLeft = (activeIndex - 1 + total) % total === index
+    const isRight = (activeIndex + 1) % total === index
+
+    if (isActive) return {
+      zIndex: 3, opacity: 1, pointerEvents: 'auto',
+      transform: 'translateX(0) translateY(0) scale(1) rotateY(0deg)',
+      transition: 'all 0.75s cubic-bezier(.4,2,.3,1)',
     }
-  }
-
-  const activeStyle: React.CSSProperties = {
-    position: 'relative',
-    zIndex: 3,
-    opacity: 1,
-    transform: 'translateX(0) translateY(0) scale(1) rotateY(0deg)',
-    transition: 'all 0.8s cubic-bezier(.4,2,.3,1)',
-  }
-
-  const hiddenStyle: React.CSSProperties = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    zIndex: 1,
-    opacity: 0,
-    pointerEvents: 'none',
-    transition: 'all 0.8s cubic-bezier(.4,2,.3,1)',
+    if (isLeft) return {
+      zIndex: 2, opacity: 0.9, pointerEvents: 'auto',
+      transform: `translateX(-${gap}px) translateY(-${stickUp}px) scale(0.85) rotateY(12deg)`,
+      transition: 'all 0.75s cubic-bezier(.4,2,.3,1)',
+    }
+    if (isRight) return {
+      zIndex: 2, opacity: 0.9, pointerEvents: 'auto',
+      transform: `translateX(${gap}px) translateY(-${stickUp}px) scale(0.85) rotateY(-12deg)`,
+      transition: 'all 0.75s cubic-bezier(.4,2,.3,1)',
+    }
+    return {
+      zIndex: 1, opacity: 0, pointerEvents: 'none',
+      transition: 'all 0.75s cubic-bezier(.4,2,.3,1)',
+    }
   }
 
   const lightboxItems = useMemo(
@@ -99,62 +97,45 @@ export function Carousel({ slides, autoplay = true }: Props) {
 
   if (total === 0) return null
 
-  const leftIdx = (activeIndex - 1 + total) % total
-  const rightIdx = (activeIndex + 1) % total
+  // 固定高度 = 容器宽度 * 0.65（接近常见截图比例），图片 object-contain 完整显示
+  const fixedHeight = Math.round(containerWidth * 0.65)
 
   return (
     <>
       <div
         ref={containerRef}
         className="relative w-full"
-        style={{ perspective: '1000px' }}
+        style={{ perspective: '1000px', height: fixedHeight + stickUp }}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
       >
-        {/* active 图片撑开容器高度 */}
-        <img
-          key={`active-${activeIndex}`}
-          src={slides[activeIndex].src}
-          alt={slides[activeIndex].caption ?? ''}
-          onClick={() => setLightboxOpen(activeIndex)}
-          className="w-full cursor-pointer rounded-xl shadow-lg"
-          style={{ ...activeStyle, display: 'block', height: 'auto' }}
-          loading="lazy"
-          draggable={false}
-        />
-
-        {/* 左侧图片 */}
-        {total > 1 && (
+        {slides.map((slide, index) => (
           <img
-            key={`left-${leftIdx}`}
-            src={slides[leftIdx].src}
-            alt={slides[leftIdx].caption ?? ''}
-            onClick={() => go(-1)}
-            className="w-full cursor-pointer rounded-xl shadow-md"
-            style={{ ...getSideStyle('left'), height: 'auto' }}
+            key={slide.src + index}
+            src={slide.src}
+            alt={slide.caption ?? ''}
+            onClick={() => {
+              if (index === activeIndex) setLightboxOpen(index)
+              else if ((activeIndex - 1 + total) % total === index) go(-1)
+              else if ((activeIndex + 1) % total === index) go(1)
+            }}
+            className="absolute inset-0 w-full rounded-xl shadow-lg"
+            style={{
+              ...getStyle(index),
+              height: fixedHeight,
+              objectFit: 'contain',
+              background: 'transparent',
+              cursor: index === activeIndex ? 'zoom-in' : 'pointer',
+            }}
             loading="lazy"
             draggable={false}
           />
-        )}
-
-        {/* 右侧图片 */}
-        {total > 1 && (
-          <img
-            key={`right-${rightIdx}`}
-            src={slides[rightIdx].src}
-            alt={slides[rightIdx].caption ?? ''}
-            onClick={() => go(1)}
-            className="w-full cursor-pointer rounded-xl shadow-md"
-            style={{ ...getSideStyle('right'), height: 'auto' }}
-            loading="lazy"
-            draggable={false}
-          />
-        )}
+        ))}
 
         {/* caption */}
         {slides[activeIndex].caption && (
-          <div className="absolute bottom-0 inset-x-0 z-10 bg-gradient-to-t from-black/50 to-transparent px-4 py-3 text-xs text-white/90 rounded-b-xl">
+          <div className="absolute bottom-0 inset-x-0 z-10 text-center text-xs text-ink-400 pb-1">
             {slides[activeIndex].caption}
           </div>
         )}
