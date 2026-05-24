@@ -66,26 +66,20 @@ export function Carousel({ slides, autoplay = true }: Props) {
 
   function getStyle(index: number): React.CSSProperties {
     const isActive = index === activeIndex
-    const isLeft = (activeIndex - 1 + total) % total === index
-    const isRight = (activeIndex + 1) % total === index
-
     if (isActive) return {
       zIndex: 3, opacity: 1, pointerEvents: 'auto',
       transform: 'translateX(0) translateY(0) scale(1) rotateY(0deg)',
       transition: 'all 0.75s cubic-bezier(.4,2,.3,1)',
     }
-    if (isLeft) return {
-      zIndex: 2, opacity: 0.9, pointerEvents: 'auto',
-      transform: `translateX(-${gap}px) translateY(-${stickUp}px) scale(0.85) rotateY(12deg)`,
-      transition: 'all 0.75s cubic-bezier(.4,2,.3,1)',
-    }
-    if (isRight) return {
-      zIndex: 2, opacity: 0.9, pointerEvents: 'auto',
-      transform: `translateX(${gap}px) translateY(-${stickUp}px) scale(0.85) rotateY(-12deg)`,
-      transition: 'all 0.75s cubic-bezier(.4,2,.3,1)',
-    }
+    return { zIndex: 1, opacity: 0, pointerEvents: 'none', transition: 'all 0.75s cubic-bezier(.4,2,.3,1)' }
+  }
+
+  function getSideStyle(side: 'left' | 'right'): React.CSSProperties {
+    const x = side === 'left' ? -gap : gap
+    const ry = side === 'left' ? 12 : -12
     return {
-      zIndex: 1, opacity: 0, pointerEvents: 'none',
+      zIndex: 2, opacity: 0.9, pointerEvents: 'auto',
+      transform: `translateX(${x}px) translateY(-${stickUp}px) scale(0.85) rotateY(${ry}deg)`,
       transition: 'all 0.75s cubic-bezier(.4,2,.3,1)',
     }
   }
@@ -97,47 +91,90 @@ export function Carousel({ slides, autoplay = true }: Props) {
 
   if (total === 0) return null
 
-  // 固定高度 = 容器宽度 * 0.65（接近常见截图比例），图片 object-contain 完整显示
-  const fixedHeight = Math.round(containerWidth * 0.65)
-
   return (
     <>
       <div
         ref={containerRef}
         className="relative w-full"
-        style={{ perspective: '1000px', height: fixedHeight + stickUp }}
+        style={{ perspective: '1000px' }}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
       >
-        {slides.map((slide, index) => (
+        {/* active 图片 — 正常流，撑开容器高度 */}
+        <div style={getStyle(activeIndex)}>
           <img
-            key={slide.src + index}
-            src={slide.src}
-            alt={slide.caption ?? ''}
-            onClick={() => {
-              if (index === activeIndex) setLightboxOpen(index)
-              else if ((activeIndex - 1 + total) % total === index) go(-1)
-              else if ((activeIndex + 1) % total === index) go(1)
-            }}
-            className="absolute inset-0 w-full rounded-2xl shadow-lg"
+            src={slides[activeIndex].src}
+            alt={slides[activeIndex].caption ?? ''}
+            onClick={() => setLightboxOpen(activeIndex)}
+            className="w-full cursor-zoom-in"
             style={{
-              ...getStyle(index),
-              height: fixedHeight,
-              objectFit: 'contain',
-              background: '#ffffff',
-              cursor: index === activeIndex ? 'zoom-in' : 'pointer',
+              display: 'block',
+              height: 'auto',
+              borderRadius: '14px',
               border: '3px solid #1F2329',
-              borderRadius: '16px',
+              boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
             }}
             loading="lazy"
             draggable={false}
           />
-        ))}
+        </div>
+
+        {/* 左侧图片 — absolute，3D 偏移 */}
+        {total > 1 && (() => {
+          const li = (activeIndex - 1 + total) % total
+          return (
+            <div
+              style={{ ...getSideStyle('left'), position: 'absolute', top: 0, left: 0, width: '100%' }}
+              onClick={() => go(-1)}
+            >
+              <img
+                src={slides[li].src}
+                alt={slides[li].caption ?? ''}
+                className="w-full cursor-pointer"
+                style={{
+                  display: 'block',
+                  height: 'auto',
+                  borderRadius: '14px',
+                  border: '3px solid #1F2329',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                }}
+                loading="lazy"
+                draggable={false}
+              />
+            </div>
+          )
+        })()}
+
+        {/* 右侧图片 — absolute，3D 偏移 */}
+        {total > 1 && (() => {
+          const ri = (activeIndex + 1) % total
+          return (
+            <div
+              style={{ ...getSideStyle('right'), position: 'absolute', top: 0, left: 0, width: '100%' }}
+              onClick={() => go(1)}
+            >
+              <img
+                src={slides[ri].src}
+                alt={slides[ri].caption ?? ''}
+                className="w-full cursor-pointer"
+                style={{
+                  display: 'block',
+                  height: 'auto',
+                  borderRadius: '14px',
+                  border: '3px solid #1F2329',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                }}
+                loading="lazy"
+                draggable={false}
+              />
+            </div>
+          )
+        })()}
 
         {/* caption */}
         {slides[activeIndex].caption && (
-          <div className="absolute bottom-0 inset-x-0 z-10 text-center text-xs text-ink-400 pb-1">
+          <div className="mt-2 text-center text-xs text-ink-400">
             {slides[activeIndex].caption}
           </div>
         )}
