@@ -120,7 +120,7 @@ export function Carousel({ slides, autoplay = true }: Props) {
               else if ((activeIndex - 1 + total) % total === index) go(-1)
               else if ((activeIndex + 1) % total === index) go(1)
             }}
-            className="absolute inset-0 w-full rounded-2xl shadow-lg ring-1 ring-ink-100"
+            className="absolute inset-0 w-full rounded-2xl shadow-lg ring-[3px] ring-ink-900"
             style={{
               ...getStyle(index),
               height: fixedHeight,
