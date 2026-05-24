@@ -73,18 +73,21 @@ export function Carousel({ slides, autoplay = true }: Props) {
       zIndex: 3, opacity: 1, pointerEvents: 'auto',
       transform: 'translateX(0) translateY(0) scale(1) rotateY(0deg)',
       transition: base,
+      top: stickUp,
     }
     if (isLeft) return {
       zIndex: 2, opacity: 0.88, pointerEvents: 'auto',
-      transform: `translateX(-${gap}px) translateY(-${stickUp}px) scale(0.84) rotateY(12deg)`,
+      transform: `translateX(-${gap}px) translateY(0) scale(0.84) rotateY(12deg)`,
       transition: base,
+      top: 0,
     }
     if (isRight) return {
       zIndex: 2, opacity: 0.88, pointerEvents: 'auto',
-      transform: `translateX(${gap}px) translateY(-${stickUp}px) scale(0.84) rotateY(-12deg)`,
+      transform: `translateX(${gap}px) translateY(0) scale(0.84) rotateY(-12deg)`,
       transition: base,
+      top: 0,
     }
-    return { zIndex: 1, opacity: 0, pointerEvents: 'none', transition: base }
+    return { zIndex: 1, opacity: 0, pointerEvents: 'none', transition: base, top: stickUp }
   }
 
   const lightboxItems = useMemo(
@@ -99,7 +102,7 @@ export function Carousel({ slides, autoplay = true }: Props) {
       <div
         ref={containerRef}
         className="relative w-full"
-        style={{ perspective: '1000px', height: fixedH + stickUp + 8 }}
+        style={{ perspective: '1000px', height: fixedH + stickUp + 8, paddingTop: stickUp }}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
