@@ -118,7 +118,8 @@ export function Carousel({ slides, autoplay = true }: Props) {
             style={{
               ...getStyle(index),
               height: fixedH,
-              objectFit: 'cover',
+              objectFit: 'contain',
+              background: '#f5f6f7',
               cursor: index === activeIndex ? 'zoom-in' : 'pointer',
               boxShadow: index === activeIndex
                 ? '0 8px 28px rgba(0,0,0,0.18)'
