@@ -138,6 +138,10 @@ export function ContactCard({ open, onClose }: Props) {
               </div>
               <div className="mt-3 text-center">
                 <div className="text-lg font-semibold text-neutral-100">{profile.name}</div>
+                <div className="mt-1 inline-flex items-center gap-1 text-xs text-neutral-500">
+                  <MapPin className="h-3 w-3" />
+                  {profile.location}
+                </div>
               </div>
             </div>
 
