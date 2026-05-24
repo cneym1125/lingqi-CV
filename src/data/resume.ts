@@ -233,7 +233,7 @@ export const projects: ProjectItem[] = [
     cover:
       'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600',
     gallery: [
-      { src: '/images/project/一些直播盯盘后台.jpg', caption: '直播盯盘后台' },
+      { src: '/images/project/一些直播盯盘后台.jpg', caption: '部分直播盯盘后台' },
       { src: '/images/project/部分出单账单.png', caption: '部分出单账单' },
       { src: '/images/project/自研提效工具.png', caption: '自研提效工具' },
       { src: '/images/project/大学科技园入驻协议书.jpg', caption: '大学科技园入驻协议书' },

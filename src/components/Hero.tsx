@@ -68,37 +68,6 @@ export function Hero() {
             </div>
           </div>
         </div>
-
-        {/* 数据卡片 */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5"
-        >
-          {profile.highlights.map((h, i) => (
-            <motion.div
-              key={h.label}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 + i * 0.08 }}
-              whileHover={{ y: -4 }}
-              className="glass-card rounded-2xl p-5 shadow-soft transition hover:shadow-soft-lg"
-            >
-              <div className="flex items-baseline gap-1">
-                <span className="text-3xl font-semibold text-ink-900 md:text-4xl">
-                  {h.value}
-                </span>
-                {h.suffix && (
-                  <span className="text-base font-medium text-ink-500">
-                    {h.suffix}
-                  </span>
-                )}
-              </div>
-              <div className="mt-1 text-sm text-ink-500">{h.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   )
