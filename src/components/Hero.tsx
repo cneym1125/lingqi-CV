@@ -36,8 +36,9 @@ export function Hero() {
                   {profile.tagline}
                 </p>
 
-                <div className="mt-6 text-sm text-neutral-400">
-                  意向工作：产品 / AI 解决方案 / 产品运营等一切 AI Native 岗位
+                <div className="mt-6 space-y-1 text-sm text-neutral-400">
+                  <div>2026 应届本科生</div>
+                  <div>意向工作：产品 / AI 解决方案 / 产品运营等一切 AI Native 岗位</div>
                 </div>
 
                 <div className="mt-8 flex flex-wrap items-center gap-3">
