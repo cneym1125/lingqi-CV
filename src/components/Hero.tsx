@@ -8,7 +8,7 @@ import { MouseSpotlight } from './ui/MouseSpotlight'
 
 export function Hero() {
   return (
-    <section className="relative pt-20 pb-10 md:pt-24 md:pb-16">
+    <section className="relative pb-10 pt-20 md:pb-16 md:pt-24 -mb-4">
       <div className="mx-auto max-w-6xl px-6">
         {/* 深色主卡片 */}
         <div className="relative w-full overflow-hidden rounded-3xl border border-white/[0.08] bg-black/[0.96] shadow-soft-lg">
