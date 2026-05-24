@@ -104,7 +104,7 @@ export function Carousel({ slides, autoplay = true }: Props) {
     <>
       <div
         ref={containerRef}
-        className="relative w-full"
+        className="relative w-full overflow-hidden"
         style={{ perspective: '1000px', height: fixedHeight + stickUp }}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
@@ -120,13 +120,15 @@ export function Carousel({ slides, autoplay = true }: Props) {
               else if ((activeIndex - 1 + total) % total === index) go(-1)
               else if ((activeIndex + 1) % total === index) go(1)
             }}
-            className="absolute inset-0 w-full rounded-2xl shadow-lg ring-[3px] ring-ink-900"
+            className="absolute inset-0 w-full rounded-2xl shadow-lg"
             style={{
               ...getStyle(index),
               height: fixedHeight,
               objectFit: 'contain',
               background: '#f0f1f3',
               cursor: index === activeIndex ? 'zoom-in' : 'pointer',
+              border: '3px solid #1F2329',
+              borderRadius: '16px',
             }}
             loading="lazy"
             draggable={false}
