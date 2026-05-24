@@ -223,7 +223,7 @@ export function ContactCard({ open, onClose }: Props) {
                   className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black shadow-soft transition hover:bg-neutral-200"
                 >
                   <Mail className="h-4 w-4" />
-                  打开邮箱客户端发送邮件
+                  打开邮箱发送邮件
                 </a>
               )}
 
