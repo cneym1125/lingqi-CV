@@ -166,47 +166,25 @@ export const experiences: ExperienceItem[] = [
       { src: '/images/automq/独立撰写的blog.png', caption: '独立撰写的 Blog' },
     ],
     summary: [
-      { type: 'text', content: '负责官网 Blog 的视觉体系与海内外社媒扩散,并自研 ' },
-      { type: 'link', content: 'Python', href: 'https://www.python.org/' },
-      { type: 'text', content: ' 自动化工具消除运营冗余动作。' },
+      { type: 'text', content: '负责官网 Blog 的视觉体系与海内外社媒扩散,并自研 Python 自动化工具消除运营冗余动作。' },
     ],
     bullets: [
       [
-        { type: 'text', content: '封面与 UI 定义:负责官网 Blog 页面视觉体系重构,制定封面设计标准化规范,产出 60+ 高质量封面;利用 ' },
-        { type: 'link', content: 'Cursor', href: 'https://cursor.com/' },
-        { type: 'text', content: ' 等编程工具 Vibe Coding 独立完成 Blog 界面 UI 样式落地。' },
+        { type: 'text', content: '封面与 UI 定义:负责官网 Blog 页面视觉体系重构,制定封面设计标准化规范,产出 60+ 高质量封面;利用 Cursor 等编程工具 Vibe Coding 独立完成 Blog 界面 UI 样式落地。' },
       ],
       [
         { type: 'text', content: '提效工具自研:独立编写 Python 自动化工具,实现页面批量提交操作与多维数据整合,消除冗余动作,大幅提升工作效率。' },
       ],
       [
-        { type: 'text', content: '海内外社媒运营:在 ' },
-        { type: 'link', content: 'X', href: 'https://x.com/' },
-        { type: 'text', content: '、' },
-        { type: 'link', content: 'LinkedIn', href: 'https://www.linkedin.com/' },
-        { type: 'text', content: '、' },
-        { type: 'link', content: 'Slack', href: 'https://slack.com/' },
-        { type: 'text', content: '、' },
-        { type: 'link', content: 'Medium', href: 'https://medium.com/' },
-        { type: 'text', content: ' 等海外社媒撰写并扩散 post;在微信公众号、' },
-        { type: 'link', content: 'OSC', href: 'https://www.oschina.net/' },
-        { type: 'text', content: ' 等开源技术社区进行国内社媒扩散。' },
+        { type: 'text', content: '海内外社媒运营:在 X、LinkedIn、Slack、Medium 等海外社媒撰写并扩散 post;在微信公众号、OSC 等开源技术社区进行国内社媒扩散。' },
       ],
       [
-        { type: 'text', content: 'SEO 增长:利用 ' },
-        { type: 'link', content: 'Gemini', href: 'https://gemini.google.com/' },
-        { type: 'text', content: ' 等 AI 工具创作内容,提升 ' },
-        { type: 'link', content: 'Google', href: 'https://www.google.com/' },
-        { type: 'text', content: ' 搜索权重;修复 130+ 异常页面,将未索引量稳定控制在个位数。' },
+        { type: 'text', content: 'SEO 增长:利用 Gemini 等 AI 工具创作内容,提升 Google 搜索权重;修复 130+ 异常页面,将未索引量稳定控制在个位数。' },
       ],
       [
         { type: 'text', content: 'SOP 治理:负责团队知识库沉淀,构建包括新人 Landing、文案规范在内的多项 SOP;将孤岛 SOP 分类串联合并,确保部门协作流程的标准化产出。' },
       ],
     ],
-    tags: ['Vibe Coding', 'Python 自动化', 'SEO', '海外社媒', 'SOP', 'Cursor', 'Gemini'],
-    // 你可以在这里补充截图与证明材料,例如:
-    // media: [{ type: 'image', src: '/proof/blog-cover-01.jpg', caption: '官网 Blog 封面规范' }],
-    // proofs: [{ title: '实习证明', type: 'image', src: '/proof/intern-01.jpg', thumbnail: '/proof/intern-01.jpg' }],
   },
   {
     company: '杭州阿思拓集团有限公司',
@@ -243,7 +221,7 @@ export const experiences: ExperienceItem[] = [
         { type: 'text', content: '短视频制作发布:经历从选题规划、脚本设计到拍摄剪辑、发布全流程,掌握短视频内容从 0 到 1 的完整周期。' },
       ],
     ],
-    tags: ['短视频矩阵', '选题策划', 'Python 自动化', '数据分析', '账号增长'],
+    tags: [],
   },
 ]
 
@@ -261,9 +239,7 @@ export const projects: ProjectItem[] = [
       { src: '/images/project/大学科技园入驻协议书.jpg', caption: '大学科技园入驻协议书' },
     ],
     description: [
-      { type: 'text', content: '主导一支 4 人团队,以 AI 数字人口播 + ' },
-      { type: 'link', content: '视频号小店', href: 'https://channels.weixin.qq.com/' },
-      { type: 'text', content: ' 为载体,从选品定位、内容生产到投放转化全链路自闭环。' },
+      { type: 'text', content: '主导一支 4 人团队,以 AI 数字人口播 + 视频号小店为载体,从选品定位、内容生产到投放转化全链路自闭环。' },
     ],
     highlights: [
       [
@@ -271,9 +247,7 @@ export const projects: ProjectItem[] = [
         { type: 'text', content: '15 万+。' },
       ],
       [
-        { type: 'text', content: '流程产品化:设计并优化全链路 SOP,利用 ' },
-        { type: 'link', content: 'Python', href: 'https://www.python.org/' },
-        { type: 'text', content: ' 自动化实现视频发布效率提升 200%。' },
+        { type: 'text', content: '流程产品化:设计并优化全链路 SOP,利用 Python 自动化实现视频发布效率提升 200%。' },
       ],
       [
         { type: 'text', content: '增长优化:负责自动化流程设计与内容文案迭代,有效推动直播间及橱窗转化率提升。' },
@@ -282,10 +256,7 @@ export const projects: ProjectItem[] = [
         { type: 'text', content: '团队调度:管理 4 人团队并定期复盘,通过任务拆解与流程优化,确保销售额有效稳定产出。' },
       ],
     ],
-    tags: ['AI 数字人', 'GMV 15万+', 'Python SOP', '团队管理'],
-    // 想加项目截图、销售后台截图、视频成品时,在这里追加:
-    // media: [{ type: 'image', src: '/proof/gmv.jpg', caption: '视频号小店 GMV 截图' }],
-    // proofs: [{ title: '销售数据截图', type: 'image', src: '/proof/sales.jpg', thumbnail: '/proof/sales.jpg' }],
+    tags: [],
   },
 ]
 
