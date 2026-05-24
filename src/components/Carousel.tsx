@@ -104,7 +104,7 @@ export function Carousel({ slides, autoplay = true }: Props) {
     <>
       <div
         ref={containerRef}
-        className="relative w-full overflow-hidden"
+        className="relative w-full"
         style={{ perspective: '1000px', height: fixedHeight + stickUp }}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
@@ -124,8 +124,8 @@ export function Carousel({ slides, autoplay = true }: Props) {
             style={{
               ...getStyle(index),
               height: fixedHeight,
-              objectFit: 'contain',
-              background: '#f0f1f3',
+              objectFit: 'cover',
+              background: 'transparent',
               cursor: index === activeIndex ? 'zoom-in' : 'pointer',
               border: '3px solid #1F2329',
               borderRadius: '16px',
