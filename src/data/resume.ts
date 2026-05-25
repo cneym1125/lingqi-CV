@@ -161,9 +161,9 @@ export const experiences: ExperienceItem[] = [
       logo: '/logos/automq.png',
     },
     gallery: [
-      { src: '/images/automq/独立完成官网blog页面.png', caption: '独立完成官网 Blog 页面' },
-      { src: '/images/automq/全blog banner一致性设计.png', caption: '全 Blog Banner 一致性设计' },
-      { src: '/images/automq/独立撰写的blog.png', caption: '独立撰写的 Blog' },
+      { src: '/images/automq/blog-page.png', caption: '独立完成官网 Blog 页面' },
+      { src: '/images/automq/blog-banner.png', caption: '全 Blog Banner 一致性设计' },
+      { src: '/images/automq/blog-writing.png', caption: '独立撰写的 Blog' },
     ],
     summary: [
       { type: 'text', content: '负责官网 Blog 的视觉体系与海内外社媒扩散,并自研 Python 自动化工具消除运营冗余动作。' },
@@ -199,9 +199,9 @@ export const experiences: ExperienceItem[] = [
       logo: '/logos/91zs.png',
     },
     gallery: [
-      { src: '/images/91zs/自研快速获取各账号数据工具.jpg', caption: '自研快速获取各账号数据工具' },
-      { src: '/images/91zs/数据快速同步工具.png', caption: '数据快速同步工具' },
-      { src: '/images/91zs/团队工作量信息获取工具.png', caption: '团队工作量信息获取工具' },
+      { src: '/images/91zs/data-tool.jpg', caption: '自研快速获取各账号数据工具' },
+      { src: '/images/91zs/sync-tool.png', caption: '数据快速同步工具' },
+      { src: '/images/91zs/workload-tool.png', caption: '团队工作量信息获取工具' },
     ],
     summary: [
       { type: 'text', content: '负责短视频矩阵账号的内容产出与数据增长,并自研数据管理工具实现留资与播放量自动统计。' },
@@ -233,10 +233,10 @@ export const projects: ProjectItem[] = [
     cover:
       'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600',
     gallery: [
-      { src: '/images/project/一些直播盯盘后台.jpg', caption: '部分直播盯盘后台' },
-      { src: '/images/project/部分出单账单.png', caption: '部分出单账单' },
-      { src: '/images/project/自研提效工具.png', caption: '自研提效工具' },
-      { src: '/images/project/大学科技园入驻协议书.jpg', caption: '大学科技园入驻协议书' },
+      { src: '/images/project/livestream-dashboard.jpg', caption: '部分直播盯盘后台' },
+      { src: '/images/project/order-bill.png', caption: '部分出单账单' },
+      { src: '/images/project/efficiency-tool.png', caption: '自研提效工具' },
+      { src: '/images/project/park-agreement.jpg', caption: '大学科技园入驻协议书' },
     ],
     description: [
       { type: 'text', content: '主导一支 4 人团队,以 AI 数字人口播 + 视频号小店为载体,从选品定位、内容生产到投放转化全链路自闭环。' },
