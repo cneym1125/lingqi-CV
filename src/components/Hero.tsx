@@ -39,7 +39,7 @@ export function Hero() {
                 <div className="mt-6 space-y-1 text-sm text-neutral-400">
                   <div className="flex items-center gap-2">
                     <span>2026 应届生</span>
-                    <span className="rounded-full border border-white/20 bg-white/10 px-2 py-0.5 text-xs font-medium text-neutral-300">ENTJ</span>
+                    <span className="text-xs text-neutral-400">ENTJ</span>
                   </div>
                   <div>意向工作：产品 / AI 解决方案 / 产品运营等一切 AI Native 岗位</div>
                 </div>
