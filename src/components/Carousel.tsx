@@ -66,10 +66,24 @@ export function Carousel({ slides, autoplay = true }: Props) {
   }
 
   const handleImgClick = (index: number) => {
-    // 如果发生了明显滑动，不触发放大
     const diff = Math.abs(touchStartX.current - touchEndX.current)
     if (diff > 10) return
+    // 放大时暂停自动轮播
+    if (autoplayRef.current) {
+      clearInterval(autoplayRef.current)
+      autoplayRef.current = null
+    }
     setLightboxOpen(index)
+  }
+
+  // Lightbox 关闭后恢复自动轮播
+  const handleLightboxClose = () => {
+    setLightboxOpen(null)
+    if (autoplay && total > 1) {
+      autoplayRef.current = setInterval(() => {
+        setActiveIndex((prev) => (prev + 1) % total)
+      }, 5000)
+    }
   }
 
   const gap = calculateGap(containerWidth)
@@ -193,7 +207,7 @@ export function Carousel({ slides, autoplay = true }: Props) {
       <Lightbox
         items={lightboxItems}
         openIndex={lightboxOpen}
-        onClose={() => setLightboxOpen(null)}
+        onClose={handleLightboxClose}
       />
     </>
   )

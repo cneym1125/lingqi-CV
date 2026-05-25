@@ -37,7 +37,10 @@ export function Hero() {
                 </p>
 
                 <div className="mt-6 space-y-1 text-sm text-neutral-400">
-                  <div>2026 应届生</div>
+                  <div className="flex items-center gap-2">
+                    <span>2026 应届生</span>
+                    <span className="rounded-full border border-white/20 bg-white/10 px-2 py-0.5 text-xs font-medium text-neutral-300">ENTJ</span>
+                  </div>
                   <div>意向工作：产品 / AI 解决方案 / 产品运营等一切 AI Native 岗位</div>
                 </div>
 
