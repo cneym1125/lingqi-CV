@@ -40,7 +40,7 @@ export function InfoBadge({ name, description, href, logo }: Props) {
     closeTimer.current = window.setTimeout(() => setOpen(false), 150)
   }
 
-  // 按钮点击：手机直接 toggle，桌面清除 hide 定时器
+  // 按钮点击：直接 toggle，清除 hide 定时器
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation()
     if (closeTimer.current) { window.clearTimeout(closeTimer.current); closeTimer.current = null }
@@ -59,8 +59,13 @@ export function InfoBadge({ name, description, href, logo }: Props) {
     <div
       ref={wrapRef}
       className="relative inline-flex items-center gap-1.5"
-      onMouseEnter={show}
-      onMouseLeave={scheduleHide}
+      onMouseEnter={(e) => {
+        // 只在鼠标设备上响应 hover（排除触摸设备的 mouseover 模拟）
+        if (e.nativeEvent instanceof MouseEvent && !('ontouchstart' in window)) show()
+      }}
+      onMouseLeave={() => {
+        if (!('ontouchstart' in window)) scheduleHide()
+      }}
     >
       {logo && (
         <img src={logo} alt={name} className="h-5 w-auto select-none" />
