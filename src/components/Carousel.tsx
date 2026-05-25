@@ -109,18 +109,14 @@ export function Carousel({ slides, autoplay = true }: Props) {
             key={slide.src + index}
             src={slide.src}
             alt={slide.caption ?? ''}
-            onClick={() => {
-              if (index === activeIndex) setLightboxOpen(index)
-              else if ((activeIndex - 1 + total) % total === index) go(-1)
-              else if ((activeIndex + 1) % total === index) go(1)
-            }}
+            onClick={() => setLightboxOpen(index)}
             className="absolute inset-0 w-full rounded-2xl"
             style={{
               ...getStyle(index),
               height: fixedH,
               objectFit: 'contain',
               background: '#f5f6f7',
-              cursor: index === activeIndex ? 'zoom-in' : 'pointer',
+              cursor: 'zoom-in',
               boxShadow: index === activeIndex
                 ? '0 8px 28px rgba(0,0,0,0.18)'
                 : '0 4px 12px rgba(0,0,0,0.12)',
