@@ -118,7 +118,7 @@ export const profile: Profile = {
   enName: 'Li Zhe',
   title: 'AI Native',
   tagline:
-    '擅长用 AI 与代码把各种任务做成可复制的工程化能力,从 0 到 1 跑通过完整项目闭环。',
+    '擅长用 AI 把各种任务做成可复制的工程化能力,从 0 到 1 跑通过完整项目闭环。',
   // 你的真实头像可以替换为 /avatar.jpg 后放到 public 目录
   avatar:
     '/avatar.jpg',
