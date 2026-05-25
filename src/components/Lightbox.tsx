@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { MediaItem } from '../data/resume'
 
 interface Props {
@@ -11,6 +11,8 @@ interface Props {
 
 export function Lightbox({ items, openIndex, onClose }: Props) {
   const [idx, setIdx] = useState(openIndex ?? 0)
+  const touchStartX = useRef(0)
+  const touchEndX = useRef(0)
 
   useEffect(() => {
     if (openIndex !== null) setIdx(openIndex)
@@ -30,6 +32,21 @@ export function Lightbox({ items, openIndex, onClose }: Props) {
   const open = openIndex !== null
   const current = open ? items[idx] : null
 
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+    touchEndX.current = e.touches[0].clientX
+  }
+  const onTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX
+  }
+  const onTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) setIdx((i) => Math.min(items.length - 1, i + 1))
+      else setIdx((i) => Math.max(0, i - 1))
+    }
+  }
+
   return (
     <AnimatePresence>
       {open && current && (
@@ -40,41 +57,43 @@ export function Lightbox({ items, openIndex, onClose }: Props) {
           transition={{ duration: 0.2 }}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur"
           onClick={onClose}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
+          {/* 关闭按钮 */}
           <button
             type="button"
-            className="absolute right-5 top-5 rounded-full bg-white/85 p-2 text-white transition hover:bg-white/20"
+            className="absolute right-5 top-5 z-10 rounded-full bg-black/50 p-2 text-white transition hover:bg-black/70"
             onClick={onClose}
             aria-label="关闭"
           >
             <X className="h-5 w-5" />
           </button>
 
+          {/* 左箭头 */}
           {idx > 0 && (
             <button
               type="button"
-              className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/85 p-3 text-white transition hover:bg-white/20"
-              onClick={(e) => {
-                e.stopPropagation()
-                setIdx((i) => Math.max(0, i - 1))
-              }}
+              className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white transition hover:bg-black/70"
+              onClick={(e) => { e.stopPropagation(); setIdx((i) => Math.max(0, i - 1)) }}
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
           )}
+
+          {/* 右箭头 */}
           {idx < items.length - 1 && (
             <button
               type="button"
-              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/85 p-3 text-white transition hover:bg-white/20"
-              onClick={(e) => {
-                e.stopPropagation()
-                setIdx((i) => Math.min(items.length - 1, i + 1))
-              }}
+              className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white transition hover:bg-black/70"
+              onClick={(e) => { e.stopPropagation(); setIdx((i) => Math.min(items.length - 1, i + 1)) }}
             >
               <ChevronRight className="h-5 w-5" />
             </button>
           )}
 
+          {/* 图片 — stopPropagation 防止点图片关闭 */}
           <motion.div
             key={idx}
             initial={{ opacity: 0, scale: 0.96 }}
@@ -105,6 +124,20 @@ export function Lightbox({ items, openIndex, onClose }: Props) {
               </div>
             )}
           </motion.div>
+
+          {/* 指示点 */}
+          {items.length > 1 && (
+            <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2">
+              {items.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={(e) => { e.stopPropagation(); setIdx(i) }}
+                  className={`h-2 rounded-full transition-all ${i === idx ? 'w-6 bg-white' : 'w-2 bg-white/40'}`}
+                />
+              ))}
+            </div>
+          )}
         </motion.div>
       )}
     </AnimatePresence>

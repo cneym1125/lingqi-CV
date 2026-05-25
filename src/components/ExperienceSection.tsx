@@ -81,7 +81,7 @@ export function ExperienceSection() {
 
               {/* 左侧（桌面）/ 下方（手机）：轮播图 */}
               {slides.length > 0 && (
-                <div className="overflow-hidden rounded-b-3xl md:order-1 md:rounded-l-3xl md:rounded-br-none">
+                <div className="relative overflow-hidden md:order-1">
                   <Carousel slides={slides} />
                 </div>
               )}
