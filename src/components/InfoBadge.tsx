@@ -71,9 +71,19 @@ export function InfoBadge({ name, description, href, logo }: Props) {
             onMouseEnter={show}
             onMouseLeave={scheduleHide}
             role="tooltip"
-            className="absolute left-1/2 top-full z-30 mt-2 w-72 -translate-x-1/2 rounded-2xl border border-ink-100 bg-white p-4 text-left shadow-soft-lg"
+            className="fixed z-[200] w-72 rounded-2xl border border-ink-100 bg-white p-4 text-left shadow-soft-lg"
+            style={{
+              top: wrapRef.current
+                ? wrapRef.current.getBoundingClientRect().bottom + 8
+                : 0,
+              left: wrapRef.current
+                ? Math.min(
+                    wrapRef.current.getBoundingClientRect().left,
+                    window.innerWidth - 296
+                  )
+                : 0,
+            }}
           >
-            <div className="absolute -top-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-l border-t border-ink-100 bg-white" />
             <div className="relative">
               <div className="mb-1.5 flex items-center justify-between gap-2">
                 <span className="text-sm font-semibold text-ink-900">
