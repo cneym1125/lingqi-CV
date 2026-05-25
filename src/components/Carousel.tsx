@@ -52,11 +52,24 @@ export function Carousel({ slides, autoplay = true }: Props) {
     if (autoplayRef.current) clearInterval(autoplayRef.current)
   }, [total])
 
-  const onTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX }
+  const onTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; touchEndX.current = e.touches[0].clientX }
   const onTouchMove = (e: React.TouchEvent) => { touchEndX.current = e.touches[0].clientX }
-  const onTouchEnd = () => {
+  const onTouchEnd = (e: React.TouchEvent) => {
     const diff = touchStartX.current - touchEndX.current
-    if (Math.abs(diff) > 50) go(diff > 0 ? 1 : -1)
+    if (Math.abs(diff) > 80) {
+      e.preventDefault()
+      go(diff > 0 ? 1 : -1)
+    }
+    // 重置，防止误判
+    touchStartX.current = 0
+    touchEndX.current = 0
+  }
+
+  const handleImgClick = (index: number) => {
+    // 如果发生了明显滑动，不触发放大
+    const diff = Math.abs(touchStartX.current - touchEndX.current)
+    if (diff > 10) return
+    setLightboxOpen(index)
   }
 
   const gap = calculateGap(containerWidth)
@@ -109,7 +122,7 @@ export function Carousel({ slides, autoplay = true }: Props) {
             key={slide.src + index}
             src={slide.src}
             alt={slide.caption ?? ''}
-            onClick={() => setLightboxOpen(index)}
+            onClick={() => handleImgClick(index)}
             className="absolute inset-0 w-full rounded-2xl"
             style={{
               ...getStyle(index),
