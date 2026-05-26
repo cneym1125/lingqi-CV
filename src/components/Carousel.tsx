@@ -52,15 +52,22 @@ export function Carousel({ slides, autoplay = true }: Props) {
     if (autoplayRef.current) clearInterval(autoplayRef.current)
   }, [total])
 
-  const onTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; touchEndX.current = e.touches[0].clientX }
-  const onTouchMove = (e: React.TouchEvent) => { touchEndX.current = e.touches[0].clientX }
+  const onTouchStart = (e: React.TouchEvent) => {
+    if (e.touches.length > 1) { touchStartX.current = 0; touchEndX.current = 0; return }
+    touchStartX.current = e.touches[0].clientX
+    touchEndX.current = e.touches[0].clientX
+  }
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (e.touches.length > 1) { touchStartX.current = 0; touchEndX.current = 0; return }
+    touchEndX.current = e.touches[0].clientX
+  }
   const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === 0 && touchEndX.current === 0) return
     const diff = touchStartX.current - touchEndX.current
     if (Math.abs(diff) > 80) {
       e.preventDefault()
       go(diff > 0 ? 1 : -1)
     }
-    // 重置，防止误判
     touchStartX.current = 0
     touchEndX.current = 0
   }
