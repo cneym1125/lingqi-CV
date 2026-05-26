@@ -41,7 +41,7 @@ export function Hero() {
                     <span>2026 应届生</span>
                     <span className="text-xs text-neutral-400">ENTJ</span>
                   </div>
-                  <div>意向工作：产品 / AI 解决方案 / 产品运营等一切 AI Native 岗位</div>
+                  <div>意向工作：一切可 AI 赋能岗位</div>
                 </div>
 
                 <div className="mt-8 flex flex-wrap items-center gap-3">
