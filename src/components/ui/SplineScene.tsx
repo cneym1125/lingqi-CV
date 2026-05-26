@@ -11,34 +11,34 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
   const wrapRef = useRef<HTMLDivElement>(null)
   const [shouldLoad, setShouldLoad] = useState(false)
 
-  // 只有进入视口才开始加载 Spline（避免首屏阻塞）
+  // 浏览器空闲时才加载 Spline，让首屏先渲染完成
   useEffect(() => {
     const el = wrapRef.current
     if (!el) return
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldLoad(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.1 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
+    const trigger = () => setShouldLoad(true)
+
+    // 优先用 requestIdleCallback，浏览器真正空闲时才加载
+    let idleId: number | undefined
+    let timeoutId: number | undefined
+
+    if ('requestIdleCallback' in window) {
+      idleId = (window as any).requestIdleCallback(trigger, { timeout: 3000 })
+    } else {
+      // 不支持 idle 的降级：1.5 秒后加载
+      timeoutId = window.setTimeout(trigger, 1500)
+    }
+
+    return () => {
+      if (idleId !== undefined) (window as any).cancelIdleCallback(idleId)
+      if (timeoutId !== undefined) window.clearTimeout(timeoutId)
+    }
   }, [])
 
   return (
     <div ref={wrapRef} className={className} style={{ minHeight: '200px' }}>
       {shouldLoad && (
-        <Suspense
-          fallback={
-            <div className="flex h-full w-full items-center justify-center">
-              <div className="h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white/80" />
-            </div>
-          }
-        >
+        <Suspense fallback={null}>
           <Spline scene={scene} className="h-full w-full" />
         </Suspense>
       )}
