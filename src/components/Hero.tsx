@@ -24,7 +24,7 @@ export function Hero() {
                 transition={{ duration: 0.7 }}
               >
                 <h1 className="bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
-                  {profile.name}
+                  Hi，我是{profile.name}
                 </h1>
                 {profile.enName && (
                   <span className="mt-1 block text-lg text-neutral-500">
