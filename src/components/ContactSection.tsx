@@ -24,14 +24,24 @@ export function ContactSection() {
               期待与您进一步沟通！
             </h3>
           </div>
-          <button
-            type="button"
-            onClick={openContactCard}
-            className="group inline-flex items-center gap-2 self-start rounded-full bg-white px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:bg-neutral-200 md:self-center"
-          >
-            查看联系方式
-            <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </button>
+          <div className="flex flex-wrap gap-3 self-start md:self-center">
+            <button
+              type="button"
+              onClick={openContactCard}
+              className="group inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:bg-neutral-200"
+            >
+              查看联系方式
+              <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </button>
+            <a
+              href="/resume.pdf"
+              download
+              className="group inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:bg-neutral-200"
+            >
+              下载简历
+              <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+          </div>
         </div>
       </motion.div>
     </Section>
