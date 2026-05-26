@@ -35,7 +35,7 @@ export function ContactSection() {
             </button>
             <a
               href="/resume.pdf"
-              download
+              download="lingqi 李哲 简历.pdf"
               className="group inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:bg-neutral-200"
             >
               下载简历
