@@ -118,7 +118,7 @@ export const profile: Profile = {
   enName: 'Li Zhe',
   title: 'AI Native',
   tagline:
-    '擅长用 AI 把各种任务做成可复制的工程化能力,从 0 到 1 跑通过完整项目闭环。',
+    '擅长用 AI 把各种任务做成可复制的工程化能力,从 0 到 1 跑通完整项目闭环。',
   // 你的真实头像可以替换为 /avatar.jpg 后放到 public 目录
   avatar:
     '/avatar.jpg',
@@ -208,14 +208,13 @@ export const experiences: ExperienceItem[] = [
     ],
     bullets: [
       [
-        { type: 'text', content: '矩阵账号运营:运营多个短视频账号,实现单条视频最高 ' },
-        { type: 'text', content: '5 万+ 播放,累计精准获取留资 300+。' },
+        { type: 'text', content: '矩阵账号运营:运营多个短视频账号,实现单条视频最高 5 万+ 播放,累计精准获取留资 300+。' },
       ],
       [
         { type: 'text', content: '自动化工具自研:独立开发数据管理工具,实现留资与播放量自动统计,提升运营数据分析效率 100%。' },
       ],
       [
-        { type: 'text', content: '选题策划:负责选题策划与脚本撰写,累计产出 200+ 视频,通过内容迭代将账号转化率提升。' },
+        { type: 'text', content: '选题策划:负责选题策划与脚本撰写,累计产出 200+ 视频,通过内容迭代持续提升账号转化率。' },
       ],
       [
         { type: 'text', content: '短视频制作发布:经历从选题规划、脚本设计到拍摄剪辑、发布全流程,掌握短视频内容从 0 到 1 的完整周期。' },
@@ -250,7 +249,7 @@ export const projects: ProjectItem[] = [
         { type: 'text', content: '流程产品化:设计并优化全链路 SOP,利用 Python 自动化实现视频发布效率提升 200%。' },
       ],
       [
-        { type: 'text', content: '增长优化:负责自动化流程设计与内容文案迭代,有效推动直播间及橱窗转化率提升。' },
+        { type: 'text', content: '增长优化:负责自动化流程设计与内容文案迭代,有效提升直播间及橱窗转化率。' },
       ],
       [
         { type: 'text', content: '团队调度:管理 4 人团队并定期复盘,通过任务拆解与流程优化,确保销售额有效稳定产出。' },
