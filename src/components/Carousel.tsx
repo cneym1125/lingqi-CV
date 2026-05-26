@@ -28,6 +28,7 @@ export function Carousel({ slides, autoplay = true }: Props) {
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const touchStartX = useRef(0)
   const touchEndX = useRef(0)
+  const [isVisible, setIsVisible] = useState(false)
   const total = slides.length
 
   useEffect(() => {
@@ -39,13 +40,26 @@ export function Carousel({ slides, autoplay = true }: Props) {
     return () => window.removeEventListener('resize', measure)
   }, [])
 
+  // 视口检测：进入视口时才允许自动轮播
   useEffect(() => {
-    if (!autoplay || total <= 1) return
+    const el = containerRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  // 自动轮播：仅在视口内时计时
+  useEffect(() => {
+    if (!autoplay || total <= 1 || !isVisible) return
     autoplayRef.current = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % total)
-    }, 5000)
+    }, 8000)
     return () => { if (autoplayRef.current) clearInterval(autoplayRef.current) }
-  }, [autoplay, total])
+  }, [autoplay, total, isVisible])
 
   const go = useCallback((delta: number) => {
     setActiveIndex((prev) => (prev + delta + total) % total)
@@ -89,7 +103,7 @@ export function Carousel({ slides, autoplay = true }: Props) {
     if (autoplay && total > 1) {
       autoplayRef.current = setInterval(() => {
         setActiveIndex((prev) => (prev + 1) % total)
-      }, 5000)
+      }, 8000)
     }
   }
 
