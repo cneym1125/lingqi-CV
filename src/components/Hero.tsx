@@ -36,8 +36,8 @@ export function Hero() {
         <MouseSpotlight size={250} />
 
         {/* 文字内容 — mix-blend-difference 反色效果 */}
-        <div className="relative z-10 flex h-full w-full flex-col justify-between p-8 md:p-16 lg:p-20 text-white mix-blend-difference min-h-[85vh]">
-          {/* 中间主标题 */}
+        <div className="relative z-10 flex h-full w-full flex-col justify-end gap-8 p-8 md:justify-between md:gap-0 md:p-16 lg:p-20 text-white mix-blend-difference min-h-[85vh]">
+          {/* 主标题 */}
           <div className="flex flex-col gap-2">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
