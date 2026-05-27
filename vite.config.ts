@@ -2,6 +2,8 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import type { Plugin } from 'vite'
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 // 移除 spline 的 modulepreload 标签，防止阻塞首屏
 function removeSplinePreload(): Plugin {
   return {
@@ -10,13 +12,13 @@ function removeSplinePreload(): Plugin {
       return html.replace(
         /<link rel="modulepreload"[^>]*spline[^>]*>\s*/g,
         ''
-      )
+      );
     },
-  }
+  };
 }
 
 export default defineConfig({
-  plugins: [react(), removeSplinePreload()],
+  plugins: [react(), removeSplinePreload(), cloudflare()],
   server: {
     host: true,
     port: 5173,
