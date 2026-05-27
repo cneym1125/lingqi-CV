@@ -24,7 +24,7 @@ export function Hero() {
         <div className="fixed top-[-10vh] left-0 h-[120vh] w-full">
           <motion.div className="relative h-full w-full" style={{ y }}>
             <img
-              src="/images/hero-bg.jpg"
+              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80"
               alt="hero background"
               className="h-full w-full object-cover opacity-60"
               loading="eager"
