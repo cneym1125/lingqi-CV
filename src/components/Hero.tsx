@@ -3,7 +3,6 @@ import { Mail } from 'lucide-react'
 import { profile } from '../data/resume'
 import { openContactCard } from './ContactCard'
 import { Spotlight } from './ui/Spotlight'
-import { SplineScene } from './ui/SplineScene'
 import { MouseSpotlight } from './ui/MouseSpotlight'
 
 export function Hero() {
@@ -63,13 +62,8 @@ export function Hero() {
               </motion.div>
             </div>
 
-            {/* 右侧 3D 机器人 — 场景文件托管在本地服务器 */}
-            <div className="relative flex-1">
-              <SplineScene
-                scene="/spline/scene.splinecode"
-                className="h-full w-full"
-              />
-            </div>
+            {/* 右侧留空 */}
+            <div className="hidden flex-1 md:block" />
           </div>
         </div>
       </div>
