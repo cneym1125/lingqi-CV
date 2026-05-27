@@ -37,13 +37,6 @@ export function Hero() {
 
         {/* 文字内容 — mix-blend-difference 反色效果 */}
         <div className="relative z-10 flex h-full w-full flex-col justify-between p-8 md:p-16 lg:p-20 text-white mix-blend-difference min-h-[85vh]">
-          {/* 右上角标签 */}
-          <div className="flex justify-end">
-            <span className="text-sm uppercase tracking-widest opacity-70">
-              {profile.location} · {profile.title}
-            </span>
-          </div>
-
           {/* 中间主标题 */}
           <div className="flex flex-col gap-2">
             <motion.h1
@@ -72,13 +65,13 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.25 }}
               className="max-w-md"
             >
-              <p className="text-sm uppercase tracking-wide opacity-70 mb-2">
+              <p className="text-sm uppercase tracking-wide opacity-90 mb-2">
                 2026 应届生 · ENTJ
               </p>
-              <p className="text-base leading-relaxed opacity-90">
+              <p className="text-base leading-relaxed">
                 {profile.tagline}
               </p>
-              <p className="mt-1 text-sm opacity-60">
+              <p className="mt-1 text-sm opacity-80">
                 意向：产品 / AI 解决方案 / 产品运营等一切可 AI 赋能岗位
               </p>
             </motion.div>
