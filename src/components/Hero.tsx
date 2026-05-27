@@ -3,6 +3,7 @@ import { Mail } from 'lucide-react'
 import { profile } from '../data/resume'
 import { openContactCard } from './ContactCard'
 import { Spotlight } from './ui/Spotlight'
+import { SplineScene } from './ui/SplineScene'
 import { MouseSpotlight } from './ui/MouseSpotlight'
 
 export function Hero() {
@@ -62,13 +63,12 @@ export function Hero() {
               </motion.div>
             </div>
 
-            {/* 右侧装饰 — 渐变浮动球体 */}
-            <div className="relative flex flex-1 items-center justify-center overflow-hidden p-6 md:p-8">
-              <div className="relative h-56 w-56 md:h-72 md:w-72">
-                <div className="absolute inset-0 animate-floaty rounded-full bg-gradient-to-tr from-brand-blue/60 via-brand-purple/40 to-pink-400/30 blur-3xl" />
-                <div className="absolute inset-4 animate-floaty rounded-full bg-gradient-to-br from-brand-blue via-brand-purple to-pink-500 opacity-80 shadow-2xl [animation-delay:1s]" />
-                <div className="absolute inset-10 rounded-full bg-gradient-to-tr from-white/20 to-transparent backdrop-blur-sm" />
-              </div>
+            {/* 右侧 3D 机器人 — 场景文件托管在本地服务器 */}
+            <div className="relative flex-1">
+              <SplineScene
+                scene="/spline/scene.splinecode"
+                className="h-full w-full"
+              />
             </div>
           </div>
         </div>
