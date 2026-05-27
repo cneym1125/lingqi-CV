@@ -28,7 +28,7 @@ export function ContactSection() {
             <button
               type="button"
               onClick={openContactCard}
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:bg-neutral-200"
+              className="group inline-flex w-44 items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:bg-neutral-200"
             >
               查看联系方式
               <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -36,7 +36,7 @@ export function ContactSection() {
             <a
               href="/resume.pdf"
               download="lingqi 李哲 简历.pdf"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:bg-neutral-200"
+              className="group inline-flex w-44 items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-black shadow-lg transition hover:bg-neutral-200"
             >
               下载简历
               <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
