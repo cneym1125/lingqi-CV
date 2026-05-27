@@ -52,7 +52,7 @@ export function Hero() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="text-[12vw] font-bold uppercase leading-none tracking-tight md:text-[8vw]"
             >
-              {profile.name}
+              Hi，我是{profile.name}
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
